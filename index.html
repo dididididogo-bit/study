@@ -20,7 +20,7 @@
   /* Semantic surfaces & labels */
   --bg: #F2F2F7;
   --bg2: #FFFFFF;
-  --card: rgba(255, 255, 255, .78);
+  --card: rgba(255, 255, 255, .84);
   --sheet-bg: rgba(242, 242, 247, .82);
   --sheet-card: #FFFFFF;
   --label: #000000;
@@ -59,7 +59,7 @@
     --red: #FF453A; --orange: #FF9F0A; --yellow: #FFD60A; --green: #30D158; --mint: #63E6E2;
     --teal: #40C8E0; --cyan: #64D2FF; --blue: #0A84FF; --indigo: #5E5CE6; --purple: #BF5AF2;
     --pink: #FF375F; --brown: #AC8E68; --gray: #8E8E93;
-    --bg: #000000; --bg2: #1C1C1E; --card: rgba(28, 28, 30, .74);
+    --bg: #000000; --bg2: #1C1C1E; --card: rgba(28, 28, 30, .86);
     --sheet-bg: rgba(28, 28, 30, .8); --sheet-card: #2C2C2E;
     --label: #FFFFFF; --label2: rgba(235, 235, 245, .6); --label3: rgba(235, 235, 245, .3);
     --sep: rgba(84, 84, 88, .6); --fill: rgba(120, 120, 128, .36); --fill2: rgba(118, 118, 128, .24);
@@ -76,7 +76,7 @@
   --red: #FF453A; --orange: #FF9F0A; --yellow: #FFD60A; --green: #30D158; --mint: #63E6E2;
   --teal: #40C8E0; --cyan: #64D2FF; --blue: #0A84FF; --indigo: #5E5CE6; --purple: #BF5AF2;
   --pink: #FF375F; --brown: #AC8E68; --gray: #8E8E93;
-  --bg: #000000; --bg2: #1C1C1E; --card: rgba(28, 28, 30, .74);
+  --bg: #000000; --bg2: #1C1C1E; --card: rgba(28, 28, 30, .86);
   --sheet-bg: rgba(28, 28, 30, .8); --sheet-card: #2C2C2E;
   --label: #FFFFFF; --label2: rgba(235, 235, 245, .6); --label3: rgba(235, 235, 245, .3);
   --sep: rgba(84, 84, 88, .6); --fill: rgba(120, 120, 128, .36); --fill2: rgba(118, 118, 128, .24);
@@ -159,7 +159,6 @@ input, textarea, select { font: inherit; color: inherit; letter-spacing: inherit
 /* ---------- Grouped lists ---------- */
 .group {
   background: var(--card); border-radius: 26px; overflow: hidden;
-  -webkit-backdrop-filter: blur(30px) saturate(1.6); backdrop-filter: blur(30px) saturate(1.6);
   display: flex; flex-direction: column;
 }
 .row {
@@ -196,7 +195,6 @@ button.row:active, .row.tap:active, .row.pressing { background: var(--fill2) }
 .scard {
   position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
   padding: 14px; border-radius: 24px; background: var(--card); min-width: 0;
-  -webkit-backdrop-filter: blur(30px) saturate(1.6); backdrop-filter: blur(30px) saturate(1.6);
   transition: transform .35s var(--ease-bounce);
 }
 .scard:active, .scard.pressing { transform: scale(.97) }
@@ -235,10 +233,11 @@ button.row:active, .row.tap:active, .row.pressing { background: var(--fill2) }
 /* Refraction (Chromium only: SVG displacement inside backdrop-filter) */
 .refract .tabbar { -webkit-backdrop-filter: url(#lg-bar) blur(5px) saturate(1.9) brightness(1.05); backdrop-filter: url(#lg-bar) blur(5px) saturate(1.9) brightness(1.05) }
 .refract .tabbar.min { -webkit-backdrop-filter: url(#lg-min) blur(5px) saturate(1.9); backdrop-filter: url(#lg-min) blur(5px) saturate(1.9) }
+.refract .tabbar.resizing { -webkit-backdrop-filter: blur(6px) saturate(1.9) brightness(1.05); backdrop-filter: blur(6px) saturate(1.9) brightness(1.05) }
 .refract .nbtn { -webkit-backdrop-filter: url(#lg-btn) blur(4px) saturate(1.9); backdrop-filter: url(#lg-btn) blur(4px) saturate(1.9) }
 .refract .round { -webkit-backdrop-filter: url(#lg-round) blur(6px) saturate(1.9); backdrop-filter: url(#lg-round) blur(6px) saturate(1.9) }
-.refract .lens.drag { -webkit-backdrop-filter: url(#lg-lens) saturate(1.6) brightness(1.08); backdrop-filter: url(#lg-lens) saturate(1.6) brightness(1.08) }
-.rt.refract .tabbar, .rt.refract .nbtn, .rt.refract .round, .rt.refract .lens.drag { -webkit-backdrop-filter: none; backdrop-filter: none }
+.refract .lens.pressed { -webkit-backdrop-filter: url(#lg-lens) blur(1.5px) saturate(1.6) brightness(1.08); backdrop-filter: url(#lg-lens) blur(1.5px) saturate(1.6) brightness(1.08) }
+.rt.refract .tabbar, .rt.refract .nbtn, .rt.refract .round, .rt.refract .lens.pressed { -webkit-backdrop-filter: none; backdrop-filter: none }
 
 /* Interactive glass: grows and lights up when pressed */
 .press { transition: transform .45s var(--ease-bounce), filter .3s, box-shadow .3s }
@@ -276,43 +275,40 @@ button.row:active, .row.tap:active, .row.pressing { background: var(--fill2) }
 .edge.top { top: 0; height: calc(env(safe-area-inset-top, 0px) + 80px); opacity: 0;
   -webkit-mask-image: linear-gradient(#000 45%, transparent); mask-image: linear-gradient(#000 45%, transparent) }
 .edge.top.on { opacity: 1 }
-.edge.bottom { bottom: 0; height: calc(env(safe-area-inset-bottom, 0px) + 72px);
+.edge.bottom { bottom: 0; height: calc(env(safe-area-inset-bottom, 0px) + 72px); -webkit-backdrop-filter: none; backdrop-filter: none;
   background: linear-gradient(transparent, var(--edge));
   -webkit-mask-image: linear-gradient(transparent, #000 60%); mask-image: linear-gradient(transparent, #000 60%) }
 
 /* ---------- Tab bar ---------- */
+/* Geometry is driven per frame by a spring simulation in JS (--m: minimise 0→1, --p: press 0→1). */
 .tabbar {
-  --itemw: 72px;
-  position: absolute; z-index: 30; bottom: calc(env(safe-area-inset-bottom, 0px) + 12px); left: 16px; width: 360px;
-  height: 64px; border-radius: 32px; padding: 4px; touch-action: none;
-  transition: width .6s var(--ease-bounce), left .6s var(--ease-bounce);
+  --itemw: 72px; --m: 0; --p: 0;
+  position: absolute; z-index: 30; left: 0; bottom: calc(env(safe-area-inset-bottom, 0px) + 12px); width: 360px;
+  height: 64px; border-radius: 32px; padding: 4px; touch-action: none; will-change: transform, width;
 }
-.tabclip { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; z-index: 2 }
-.tabtrack { position: absolute; left: 4px; top: 4px; height: 56px; display: flex; transition: transform .6s var(--ease-bounce) }
+.tabclip { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; z-index: 2; pointer-events: none }
+.tabtrack { position: absolute; left: 4px; top: 4px; height: 56px; display: flex; will-change: transform }
 .tab {
   width: var(--itemw); flex: none; height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
-  color: var(--label); transition: color .25s, opacity .3s;
+  color: var(--label); transition: color .18s var(--ease); pointer-events: auto;
 }
-.tab .ic { width: 25px; height: 25px; stroke-width: 1.9; transition: transform .5s var(--ease-bounce), stroke-width .2s }
-.tab-label { font: 600 10px/12px var(--font); letter-spacing: .01em; transition: opacity .25s }
-.tab.on, .tab.hover { color: var(--accent) }
-.tab.on .ic { stroke-width: 2.3 }
-.tab.bounce .ic { animation: symBounce .5s var(--ease) }
-@keyframes symBounce { 0% { scale: 1 } 30% { scale: .78 } 65% { scale: 1.14 } 100% { scale: 1 } }
+.tab > span:first-child { display: block; will-change: transform }
+.tab .ic { width: 25px; height: 25px; stroke-width: 1.9; transition: stroke-width .2s }
+.tab-label { font: 600 10px/12px var(--font); letter-spacing: .01em; opacity: calc(1 - var(--m) * 2) }
+.tab.hl, .tabbar.min .tab.on { color: var(--accent) }
+.tab.hl .ic { stroke-width: 2.3 }
+.tab.bounce .ic { animation: symBounce .45s var(--ease) }
+@keyframes symBounce { 0% { scale: 1 } 30% { scale: .8 } 65% { scale: 1.12 } 100% { scale: 1 } }
 .lens {
   position: absolute; left: 4px; top: 4px; height: 56px; width: var(--itemw); border-radius: 28px; z-index: 1;
-  background: var(--lens); transform: translateX(var(--lx, 0px));
-  transition: transform .55s var(--ease-bounce), scale .45s var(--ease-bounce), background .25s, box-shadow .25s, opacity .25s;
+  background: var(--lens); will-change: transform; pointer-events: none;
 }
-.lens.drag {
-  z-index: 3; scale: 1.16 1.2; background: var(--lens-press);
+.lens::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; opacity: var(--p);
+  background: var(--lens-press);
   box-shadow: inset 0 1px 0 -.5px var(--glass-rim), inset 0 -1px 0 -.5px var(--glass-rim2), inset 0 0 10px rgba(255, 255, 255, .25), 0 8px 24px -6px var(--glass-shadow);
 }
-.lens.follow { transition: scale .45s var(--ease-bounce), background .25s, box-shadow .25s }
-.tabbar.min .lens { opacity: 0 }
-.tabbar.min .tab-label { opacity: 0 }
-.tabbar.min .tab .ic { transform: translateY(7px) }
-.tabbar.min .tab:not(.on) { opacity: 0 }
+.lens.pressed { z-index: 3 }
 
 /* ---------- Search, chips, segmented ---------- */
 .search { display: flex; align-items: center; gap: 8px; height: 46px; border-radius: 23px; padding: 0 8px 0 14px; color: var(--label2) }
@@ -361,7 +357,6 @@ button.row:active, .row.tap:active, .row.pressing { background: var(--fill2) }
 .widget {
   display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-height: 164px; padding: 16px;
   border-radius: 26px; background: var(--card); text-align: left; min-width: 0;
-  -webkit-backdrop-filter: blur(30px) saturate(1.6); backdrop-filter: blur(30px) saturate(1.6);
 }
 .w-label { display: flex; align-items: center; gap: 6px; font: 600 15px/20px var(--font) }
 .w-label .ic { width: 18px; height: 18px; stroke-width: 2.4 }
@@ -954,71 +949,110 @@ function updateNav() {
 
 /* ---------- Tab bar ---------- */
 const bar = $('#tabbar'), lens = $('#lens'), track = $('#tabtrack');
-track.innerHTML = TABS.map(t => `<button class="tab" role="tab" data-action="tab" data-tab="${t.id}" aria-label="${t.label}"><span>${icon(t.icon)}</span><span class="tab-label">${t.label}</span></button>`).join('');
-const tabEls = $$('.tab', track);
+track.innerHTML = TABS.map(t => `<button class="tab" role="tab" data-tab="${t.id}" aria-label="${t.label}"><span>${icon(t.icon)}</span><span class="tab-label">${t.label}</span></button>`).join('');
+const tabEls = $$('.tab', track), tabIcons = tabEls.map(t => t.firstElementChild);
 let tabIndex = TABS.findIndex(t => t.id === S.tab), itemW = 72, barW = 360, minimized = false;
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+/* Damped springs, integrated every animation frame. z < 1 gives the slight overshoot iOS uses. */
+const spring = (k, z, eps) => ({ x: 0, v: 0, t: 0, k, c: 2 * Math.sqrt(k) * z, eps });
+const SP = { lx: spring(560, .74, .2), press: spring(800, .72, .002), min: spring(420, .84, .002) };
+let raf = 0, lastT = 0;
+function kick() { if (!raf) { lastT = performance.now(); raf = requestAnimationFrame(frame); } }
+function frame(now) {
+  const dt = Math.min(.034, (now - lastT) / 1000); lastT = now;
+  let moving = false;
+  for (const s of Object.values(SP)) {
+    if (reduceMotion.matches) { s.x = s.t; s.v = 0; continue; }
+    const n = 4, h = dt / n;
+    for (let i = 0; i < n; i++) { const acc = -s.k * (s.x - s.t) - s.c * s.v; s.v += acc * h; s.x += s.v * h; }
+    if (Math.abs(s.x - s.t) < s.eps && Math.abs(s.v) < s.eps * 20) { s.x = s.t; s.v = 0; } else moving = true;
+  }
+  paintBar();
+  if (moving) raf = requestAnimationFrame(frame);
+  else { raf = 0; bar.classList.remove('resizing'); if (!drag) lens.classList.remove('pressed'); }
+}
+function paintBar() {
+  const m = SP.min.x, p = SP.press.x, lx = SP.lx.x, v = SP.lx.v;
+  const cx = (innerWidth - barW) / 2;
+  bar.style.width = (barW + (64 - barW) * m) + 'px';
+  bar.style.transform = `translate3d(${cx + (16 - cx) * m}px,0,0)`;
+  bar.style.setProperty('--m', Math.max(0, Math.min(1, m)).toFixed(3));
+  bar.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(3));
+  track.style.transform = `translate3d(${((56 - itemW) / 2 - tabIndex * itemW) * m}px,0,0)`;
+  // The lens stretches along its direction of travel and squashes vertically, like a drop of liquid.
+  const stretch = Math.min(Math.abs(v) / 2600, .3);
+  const sx = (1 + .14 * p) * (1 + stretch), sy = (1 + .2 * p) * (1 - stretch * .4);
+  lens.style.transform = `translate3d(${lx}px,0,0) scale(${sx.toFixed(4)},${sy.toFixed(4)})`;
+  lens.style.opacity = Math.max(0, 1 - m * 1.6).toFixed(3);
+  const c = lx + itemW / 2;
+  for (let i = 0; i < tabEls.length; i++) {
+    const d = Math.abs(i * itemW + itemW / 2 - c) / itemW;
+    tabIcons[i].style.transform = `translate3d(0,${(7 * m).toFixed(2)}px,0) scale(${(1 + .16 * p * Math.max(0, 1 - d)).toFixed(4)})`;
+    tabEls[i].classList.toggle('hl', d < .5 && m < .5);
+    tabEls[i].style.opacity = i === tabIndex ? '' : Math.max(0, 1 - m * 1.4).toFixed(3);
+  }
+}
 function layoutBar() {
   barW = Math.min(innerWidth - 32, 440);
   itemW = (barW - 8) / TABS.length;
   bar.style.setProperty('--itemw', itemW + 'px');
-  applyBar();
+  if (!drag) { SP.lx.t = SP.lx.x = tabIndex * itemW; SP.lx.v = 0; }
+  tabEls.forEach((t, k) => { t.classList.toggle('on', k === tabIndex); t.setAttribute('aria-selected', k === tabIndex); });
+  paintBar();
   buildGlassFilters();
 }
-function applyBar() {
-  bar.classList.toggle('min', minimized);
-  if (minimized) {
-    bar.style.width = '64px'; bar.style.left = '16px';
-    track.style.transform = `translateX(${(56 - itemW) / 2 - tabIndex * itemW}px)`;
-  } else {
-    bar.style.width = barW + 'px'; bar.style.left = (innerWidth - barW) / 2 + 'px';
-    track.style.transform = '';
-  }
-  lens.style.setProperty('--lx', tabIndex * itemW + 'px');
-  tabEls.forEach((t, i) => { t.classList.toggle('on', i === tabIndex); t.setAttribute('aria-selected', i === tabIndex); });
+function setMin(v) {
+  if (minimized === v) return;
+  minimized = v; SP.min.t = v ? 1 : 0;
+  bar.classList.toggle('min', v); bar.classList.add('resizing');
+  kick();
 }
-function setMin(v) { if (minimized === v) return; minimized = v; applyBar(); }
 function selectTab(i) {
   const id = TABS[i].id, v = views[id];
+  SP.lx.t = i * itemW; kick();
   if (i === tabIndex && v.classList.contains('active')) { v.scrollTo({ top: 0, behavior: 'smooth' }); return; }
   tabIndex = i; S.tab = id; save('tab');
+  tabEls.forEach((t, k) => { t.classList.toggle('on', k === i); t.setAttribute('aria-selected', k === i); });
   Object.values(views).forEach(x => x.classList.toggle('active', x === v));
   const el = tabEls[i]; el.classList.remove('bounce'); void el.offsetWidth; el.classList.add('bounce');
-  haptic(); lastY = v.scrollTop; setMin(false); applyBar(); updateNav();
-  if (id === 'today' || id === 'focus') render(id);
+  haptic(); lastY = v.scrollTop; setMin(false); updateNav();
+  if (id === 'today' || id === 'focus') setTimeout(() => render(id), 380);
 }
 let drag = null;
+const idxAt = x => Math.max(0, Math.min(TABS.length - 1, Math.floor((x - bar.getBoundingClientRect().left - 4) / itemW)));
 bar.addEventListener('pointerdown', e => {
-  if (minimized || e.button > 0) return;
-  const r = bar.getBoundingClientRect();
-  drag = { x0: e.clientX, r, moved: false, idx: tabIndex, id: e.pointerId };
-  const i = Math.max(0, Math.min(TABS.length - 1, Math.floor((e.clientX - r.left - 4) / itemW)));
-  lens.classList.add('drag');
-  lens.style.setProperty('--lx', i * itemW + 'px');
-  drag.idx = i;
+  if (e.button > 0) return;
+  e.preventDefault();
+  if (minimized) { setMin(false); return; }
+  try { bar.setPointerCapture(e.pointerId); } catch (_) {}
+  const left = bar.getBoundingClientRect().left, i = idxAt(e.clientX);
+  drag = { id: e.pointerId, x0: e.clientX, left, idx: i, moved: false };
+  lens.classList.add('pressed');
+  SP.press.t = 1; SP.lx.t = i * itemW; kick();
 });
 bar.addEventListener('pointermove', e => {
   if (!drag || e.pointerId !== drag.id) return;
-  if (!drag.moved && Math.abs(e.clientX - drag.x0) > 6) { drag.moved = true; lens.classList.add('follow'); try { bar.setPointerCapture(e.pointerId); } catch (_) {} }
-  if (!drag.moved) return;
-  const lx = Math.max(-6, Math.min((TABS.length - 1) * itemW + 6, e.clientX - drag.r.left - 4 - itemW / 2));
-  lens.style.setProperty('--lx', lx + 'px');
-  const i = Math.max(0, Math.min(TABS.length - 1, Math.round(lx / itemW)));
-  if (i !== drag.idx) haptic();
-  drag.idx = i;
-  tabEls.forEach((t, k) => t.classList.toggle('hover', k === i));
+  if (!drag.moved && Math.abs(e.clientX - drag.x0) < 5) return;
+  drag.moved = true;
+  const max = (TABS.length - 1) * itemW, raw = e.clientX - drag.left - 4 - itemW / 2;
+  // Rubber-band past the ends.
+  SP.lx.t = raw < 0 ? raw / 4 : raw > max ? max + (raw - max) / 4 : raw;
+  const i = Math.max(0, Math.min(TABS.length - 1, Math.round(SP.lx.t / itemW)));
+  if (i !== drag.idx) { drag.idx = i; haptic(); }
+  kick();
 });
 function endDrag(commit) {
   if (!drag) return;
   const d = drag; drag = null;
-  lens.classList.remove('drag', 'follow');
-  tabEls.forEach(t => t.classList.remove('hover'));
-  if (commit && d.moved) { tabSuppress = true; selectTab(d.idx); setTimeout(() => { tabSuppress = false; }, 50); }
-  else applyBar();
+  SP.press.t = 0;
+  if (commit) selectTab(d.idx); else SP.lx.t = tabIndex * itemW;
+  kick();
 }
-let tabSuppress = false;
 bar.addEventListener('pointerup', () => endDrag(true));
 bar.addEventListener('pointercancel', () => endDrag(false));
-bar.addEventListener('lostpointercapture', () => endDrag(true));
+// Keyboard activation (Enter / Space on a focused tab).
+bar.addEventListener('click', e => { if (e.detail !== 0) return; const t = e.target.closest('.tab'); if (t) selectTab(tabEls.indexOf(t)); });
 
 /* ---------- Liquid Glass refraction maps ---------- */
 const refractOK = /Chrome\/\d+/.test(navigator.userAgent) && !/Firefox/.test(navigator.userAgent) && typeof CSS !== 'undefined';
@@ -1057,7 +1091,7 @@ function buildGlassFilters() {
     glassFilter('lg-min', 64, 64, 32, 18, 26),
     glassFilter('lg-btn', 44, 44, 22, 14, 20),
     glassFilter('lg-round', 86, 86, 43, 22, 28),
-    glassFilter('lg-lens', itemW, 56, 28, 18, 30)
+    glassFilter('lg-lens', itemW, 56, 28, 16, 14)
   ].join('');
   root.classList.add('refract');
 }
@@ -1365,7 +1399,6 @@ function focusComplete() {
   render(); toast(`${f.dur} min of ${BY[f.subj].name} logged`, 'check');
 }
 const ACTIONS = {
-  tab: el => { if (tabSuppress) return; if (minimized) { setMin(false); return; } selectTab(TABS.findIndex(t => t.id === el.dataset.tab)); },
   go: el => selectTab(TABS.findIndex(t => t.id === el.dataset.go)),
   'open-subj': el => openSubject(el.dataset.id),
   'add-task': () => openAddTask(),
