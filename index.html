@@ -1,0 +1,1461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Study</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+/* Layout: an iOS-style app. Content layer (grouped lists, widgets) scrolls under a floating
+   Liquid Glass navigation layer (nav buttons, tab bar, menus, sheets). Apple system colours. */
+:root {
+  /* Apple system colours (light) */
+  --red: #FF3B30; --orange: #FF9500; --yellow: #FFCC00; --green: #34C759; --mint: #00C7BE;
+  --teal: #30B0C7; --cyan: #32ADE6; --blue: #007AFF; --indigo: #5856D6; --purple: #AF52DE;
+  --pink: #FF2D55; --brown: #A2845E; --gray: #8E8E93;
+  --accent: var(--blue);
+
+  /* Semantic surfaces & labels */
+  --bg: #F2F2F7;
+  --bg2: #FFFFFF;
+  --card: rgba(255, 255, 255, .78);
+  --sheet-bg: rgba(242, 242, 247, .82);
+  --sheet-card: #FFFFFF;
+  --label: #000000;
+  --label2: rgba(60, 60, 67, .6);
+  --label3: rgba(60, 60, 67, .3);
+  --sep: rgba(60, 60, 67, .2);
+  --fill: rgba(120, 120, 128, .2);
+  --fill2: rgba(118, 118, 128, .12);
+  --scrim: rgba(0, 0, 0, .16);
+  --on-accent: #FFFFFF;
+
+  /* Liquid Glass */
+  --glass: rgba(255, 255, 255, .5);
+  --glass-strong: rgba(250, 250, 252, .78);
+  --glass-rim: rgba(255, 255, 255, .95);
+  --glass-rim2: rgba(255, 255, 255, .35);
+  --glass-shade: rgba(0, 0, 0, .05);
+  --glass-shadow: rgba(0, 0, 0, .14);
+  --lens: rgba(120, 120, 128, .16);
+  --lens-press: rgba(255, 255, 255, .28);
+  --seg-thumb: #FFFFFF;
+  --edge: rgba(242, 242, 247, .7);
+  --wall-o: .32;
+
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Helvetica Neue", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", "Helvetica Neue", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-round: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  --ease: cubic-bezier(.25, .1, .25, 1);
+  --ease-sheet: cubic-bezier(.32, .72, 0, 1);
+  --ease-bounce: cubic-bezier(.34, 1.36, .64, 1);
+  --ease-soft: cubic-bezier(.22, 1.2, .36, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --red: #FF453A; --orange: #FF9F0A; --yellow: #FFD60A; --green: #30D158; --mint: #63E6E2;
+    --teal: #40C8E0; --cyan: #64D2FF; --blue: #0A84FF; --indigo: #5E5CE6; --purple: #BF5AF2;
+    --pink: #FF375F; --brown: #AC8E68; --gray: #8E8E93;
+    --bg: #000000; --bg2: #1C1C1E; --card: rgba(28, 28, 30, .74);
+    --sheet-bg: rgba(28, 28, 30, .8); --sheet-card: #2C2C2E;
+    --label: #FFFFFF; --label2: rgba(235, 235, 245, .6); --label3: rgba(235, 235, 245, .3);
+    --sep: rgba(84, 84, 88, .6); --fill: rgba(120, 120, 128, .36); --fill2: rgba(118, 118, 128, .24);
+    --scrim: rgba(0, 0, 0, .42);
+    --glass: rgba(40, 40, 44, .42); --glass-strong: rgba(44, 44, 48, .76);
+    --glass-rim: rgba(255, 255, 255, .42); --glass-rim2: rgba(255, 255, 255, .1);
+    --glass-shade: rgba(0, 0, 0, .25); --glass-shadow: rgba(0, 0, 0, .5);
+    --lens: rgba(255, 255, 255, .12); --lens-press: rgba(255, 255, 255, .16);
+    --seg-thumb: #636366; --edge: rgba(0, 0, 0, .6); --wall-o: .26;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --red: #FF453A; --orange: #FF9F0A; --yellow: #FFD60A; --green: #30D158; --mint: #63E6E2;
+  --teal: #40C8E0; --cyan: #64D2FF; --blue: #0A84FF; --indigo: #5E5CE6; --purple: #BF5AF2;
+  --pink: #FF375F; --brown: #AC8E68; --gray: #8E8E93;
+  --bg: #000000; --bg2: #1C1C1E; --card: rgba(28, 28, 30, .74);
+  --sheet-bg: rgba(28, 28, 30, .8); --sheet-card: #2C2C2E;
+  --label: #FFFFFF; --label2: rgba(235, 235, 245, .6); --label3: rgba(235, 235, 245, .3);
+  --sep: rgba(84, 84, 88, .6); --fill: rgba(120, 120, 128, .36); --fill2: rgba(118, 118, 128, .24);
+  --scrim: rgba(0, 0, 0, .42);
+  --glass: rgba(40, 40, 44, .42); --glass-strong: rgba(44, 44, 48, .76);
+  --glass-rim: rgba(255, 255, 255, .42); --glass-rim2: rgba(255, 255, 255, .1);
+  --glass-shade: rgba(0, 0, 0, .25); --glass-shadow: rgba(0, 0, 0, .5);
+  --lens: rgba(255, 255, 255, .12); --lens-press: rgba(255, 255, 255, .16);
+  --seg-thumb: #636366; --edge: rgba(0, 0, 0, .6); --wall-o: .26;
+  color-scheme: dark;
+}
+:root[data-accent="red"] { --accent: var(--red) }
+:root[data-accent="orange"] { --accent: var(--orange) }
+:root[data-accent="yellow"] { --accent: var(--yellow) }
+:root[data-accent="green"] { --accent: var(--green) }
+:root[data-accent="mint"] { --accent: var(--mint) }
+:root[data-accent="teal"] { --accent: var(--teal) }
+:root[data-accent="cyan"] { --accent: var(--cyan) }
+:root[data-accent="blue"] { --accent: var(--blue) }
+:root[data-accent="indigo"] { --accent: var(--indigo) }
+:root[data-accent="purple"] { --accent: var(--purple) }
+:root[data-accent="pink"] { --accent: var(--pink) }
+:root[data-accent="brown"] { --accent: var(--brown) }
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent }
+html, body { height: 100% }
+body {
+  margin: 0; background: var(--bg); color: var(--label);
+  font: 400 17px/1.29 var(--font); letter-spacing: -.022em;
+  -webkit-font-smoothing: antialiased; overflow: hidden; overscroll-behavior: none;
+  -webkit-user-select: none; user-select: none;
+}
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; letter-spacing: inherit; text-align: inherit }
+input, textarea, select { font: inherit; color: inherit; letter-spacing: inherit; -webkit-user-select: text; user-select: text }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.ic { width: 22px; height: 22px; flex: none; display: block }
+
+/* ---------- Scene ---------- */
+#app { position: fixed; inset: 0; background: #000; overflow: hidden }
+.scene {
+  position: absolute; inset: 0; background: var(--bg); overflow: hidden;
+  transform-origin: 50% 0; transition: transform .5s var(--ease-sheet), border-radius .5s var(--ease-sheet), filter .5s;
+}
+.scene.pushed { transform: translateY(calc(env(safe-area-inset-top, 0px) + 10px)) scale(.93); border-radius: 24px; filter: brightness(.9) }
+.wallpaper { position: absolute; inset: 0; pointer-events: none; opacity: var(--wall-o); transition: opacity .6s }
+.wallpaper i { position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%; animation: drift 34s var(--ease) infinite alternate }
+.wallpaper i:nth-child(1) { background: radial-gradient(circle, var(--accent) 0, transparent 62%); left: -30vmax; top: -30vmax }
+.wallpaper i:nth-child(2) { background: radial-gradient(circle, var(--pink) 0, transparent 62%); right: -34vmax; top: 10vh; animation-duration: 41s; animation-delay: -12s }
+.wallpaper i:nth-child(3) { background: radial-gradient(circle, var(--mint) 0, transparent 62%); left: -10vmax; bottom: -40vmax; animation-duration: 37s; animation-delay: -6s }
+.wallpaper i:nth-child(4) { background: radial-gradient(circle, var(--orange) 0, transparent 62%); right: -30vmax; bottom: -30vmax; animation-duration: 45s; animation-delay: -20s; opacity: .7 }
+@keyframes drift { 0% { transform: translate(0, 0) scale(1) } 50% { transform: translate(8vmax, 6vmax) scale(1.12) } 100% { transform: translate(-6vmax, 10vmax) scale(.95) } }
+.nowall .wallpaper { opacity: 0 }
+
+/* ---------- Views ---------- */
+.view {
+  position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior-y: contain;
+  opacity: 0; visibility: hidden; transform: scale(.985);
+  transition: opacity .18s var(--ease), transform .18s var(--ease), visibility 0s .18s;
+  scrollbar-width: none;
+}
+.view::-webkit-scrollbar { display: none }
+.view.active { opacity: 1; visibility: visible; transform: none; transition: opacity .28s var(--ease), transform .42s var(--ease-soft), visibility 0s }
+.content {
+  max-width: 720px; margin: 0 auto;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 56px);
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 124px);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 26px;
+}
+.head { display: flex; flex-direction: column; gap: 2px; padding: 0 4px; transform-origin: 0 50% }
+.eyebrow { margin: 0; font: 600 13px/18px var(--font); text-transform: uppercase; letter-spacing: .03em; color: var(--label2) }
+.lt { margin: 0; font: 700 34px/41px var(--font-display); letter-spacing: .01em; text-wrap: balance }
+.subtitle { margin: 0; font: 400 15px/20px var(--font); color: var(--label2) }
+.sec { display: flex; flex-direction: column; gap: 10px; min-width: 0 }
+.sec-h { margin: 0; padding: 0 4px; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font: 700 21px/26px var(--font-display); letter-spacing: .01em }
+.sec-h .link { font: 400 17px var(--font); color: var(--accent); letter-spacing: -.02em }
+.sec-foot { margin: 0; padding: 0 16px; font: 400 13px/18px var(--font); color: var(--label2) }
+
+/* ---------- Grouped lists ---------- */
+.group {
+  background: var(--card); border-radius: 26px; overflow: hidden;
+  -webkit-backdrop-filter: blur(30px) saturate(1.6); backdrop-filter: blur(30px) saturate(1.6);
+  display: flex; flex-direction: column;
+}
+.row {
+  position: relative; display: flex; align-items: center; gap: 14px; width: 100%;
+  min-height: 52px; padding-left: 16px; text-align: left; transition: background .25s;
+}
+.row-main { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; padding: 10px 16px 10px 0; min-height: 52px; align-self: stretch }
+.row:not(:last-child) .row-main { box-shadow: inset 0 -.5px 0 var(--sep) }
+.row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px }
+.row-title { font: 400 17px/22px var(--font); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.row-sub { font: 400 14px/19px var(--font); color: var(--label2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.row-val { color: var(--label2); font-variant-numeric: tabular-nums; white-space: nowrap }
+.chev { color: var(--label3) }
+.chev .ic { width: 15px; height: 15px; stroke-width: 2.8 }
+button.row:active, .row.tap:active, .row.pressing { background: var(--fill2) }
+.star-on { color: var(--yellow) }
+.star-on .ic { width: 16px; height: 16px; fill: currentColor; stroke-width: 1.6 }
+
+/* Subject icons (app-icon squircles) */
+.sicon {
+  --s: 32px; width: var(--s); height: var(--s); border-radius: calc(var(--s) * .26); flex: none;
+  display: grid; place-items: center; color: #fff;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 78%, #fff), var(--c) 70%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), inset 0 -1px 1px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .08);
+}
+.sicon .ic { width: calc(var(--s) * .6); height: calc(var(--s) * .6); stroke-width: 2.1 }
+.sicon b { font: 700 calc(var(--s) * .44)/1 var(--font-round); letter-spacing: -.03em }
+.sicon.m { --s: 44px }
+.sicon.l { --s: 58px }
+.sicon.xl { --s: 88px; box-shadow: inset 0 1.5px 0 rgba(255, 255, 255, .4), inset 0 -2px 3px rgba(0, 0, 0, .1), 0 10px 30px color-mix(in srgb, var(--c) 40%, transparent) }
+
+/* Grid of subjects */
+.sgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(156px, 1fr)); gap: 12px }
+.scard {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+  padding: 14px; border-radius: 24px; background: var(--card); min-width: 0;
+  -webkit-backdrop-filter: blur(30px) saturate(1.6); backdrop-filter: blur(30px) saturate(1.6);
+  transition: transform .35s var(--ease-bounce);
+}
+.scard:active, .scard.pressing { transform: scale(.97) }
+.scard .t { display: flex; flex-direction: column; gap: 2px; min-width: 0; width: 100% }
+.scard .code { font: 600 12px/16px var(--font); color: var(--label2); text-transform: uppercase; letter-spacing: .04em }
+.scard .name { font: 600 16px/21px var(--font); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical }
+.scard .who { font: 400 13px/18px var(--font); color: var(--label2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100% }
+.scard .star-on { position: absolute; top: 14px; right: 14px }
+
+/* ---------- Liquid Glass ---------- */
+.glass {
+  position: relative; isolation: isolate;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(14px) saturate(1.9) brightness(1.04);
+  backdrop-filter: blur(14px) saturate(1.9) brightness(1.04);
+  box-shadow:
+    inset 0 1px 0 -.5px var(--glass-rim),
+    inset 0 -1px 0 -.5px var(--glass-rim2),
+    inset 0 0 12px var(--glass-shade),
+    0 6px 22px -4px var(--glass-shadow),
+    0 1px 2px rgba(0, 0, 0, .06);
+}
+.glass::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; padding: 1px;
+  background: linear-gradient(135deg, var(--glass-rim) 0%, transparent 32%, transparent 64%, var(--glass-rim2) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: .9;
+}
+.glass-strong { background: var(--glass-strong) }
+.rt .glass, .rt .group, .rt .scard, .rt .widget, .rt .menu, .rt .sheet { -webkit-backdrop-filter: none !important; backdrop-filter: none !important }
+.rt .glass { background: var(--bg2) }
+.rt .glass-strong, .rt .menu, .rt .sheet { background: var(--bg2) }
+.rt .group, .rt .scard, .rt .widget { background: var(--bg2) }
+
+/* Refraction (Chromium only: SVG displacement inside backdrop-filter) */
+.refract .tabbar { -webkit-backdrop-filter: url(#lg-bar) blur(5px) saturate(1.9) brightness(1.05); backdrop-filter: url(#lg-bar) blur(5px) saturate(1.9) brightness(1.05) }
+.refract .tabbar.min { -webkit-backdrop-filter: url(#lg-min) blur(5px) saturate(1.9); backdrop-filter: url(#lg-min) blur(5px) saturate(1.9) }
+.refract .nbtn { -webkit-backdrop-filter: url(#lg-btn) blur(4px) saturate(1.9); backdrop-filter: url(#lg-btn) blur(4px) saturate(1.9) }
+.refract .round { -webkit-backdrop-filter: url(#lg-round) blur(6px) saturate(1.9); backdrop-filter: url(#lg-round) blur(6px) saturate(1.9) }
+.refract .lens.drag { -webkit-backdrop-filter: url(#lg-lens) saturate(1.6) brightness(1.08); backdrop-filter: url(#lg-lens) saturate(1.6) brightness(1.08) }
+.rt.refract .tabbar, .rt.refract .nbtn, .rt.refract .round, .rt.refract .lens.drag { -webkit-backdrop-filter: none; backdrop-filter: none }
+
+/* Interactive glass: grows and lights up when pressed */
+.press { transition: transform .45s var(--ease-bounce), filter .3s, box-shadow .3s }
+.press:active { transform: scale(1.08); filter: brightness(1.08) }
+.press-in { transition: transform .4s var(--ease-bounce) }
+.press-in:active { transform: scale(.96) }
+
+/* ---------- Nav bar ---------- */
+.navbar {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 20; pointer-events: none;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.nav-inner { position: relative; max-width: 720px; margin: 0 auto; height: 56px; display: flex; align-items: center; justify-content: space-between }
+.nav-slot { display: flex; gap: 10px; pointer-events: auto; min-width: 44px }
+.nav-title {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -30%); opacity: 0;
+  font: 600 17px/22px var(--font); transition: opacity .25s, transform .35s var(--ease-soft); white-space: nowrap;
+}
+.navbar.scrolled .nav-title { opacity: 1; transform: translate(-50%, -50%) }
+.nbtn { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: var(--label) }
+.nbtn .ic { width: 20px; height: 20px; stroke-width: 2.2 }
+.nbtn.tint { background: var(--accent); color: var(--on-accent) }
+.nbtn.tint::after { opacity: .6 }
+.nbtn[disabled] { opacity: .4; pointer-events: none }
+.nbtn.fav-on { color: var(--yellow) }
+.nbtn.fav-on .ic { fill: currentColor }
+.edge {
+  position: absolute; left: 0; right: 0; z-index: 15; pointer-events: none;
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  background: linear-gradient(var(--edge), transparent);
+  transition: opacity .3s;
+}
+.edge.top { top: 0; height: calc(env(safe-area-inset-top, 0px) + 80px); opacity: 0;
+  -webkit-mask-image: linear-gradient(#000 45%, transparent); mask-image: linear-gradient(#000 45%, transparent) }
+.edge.top.on { opacity: 1 }
+.edge.bottom { bottom: 0; height: calc(env(safe-area-inset-bottom, 0px) + 72px);
+  background: linear-gradient(transparent, var(--edge));
+  -webkit-mask-image: linear-gradient(transparent, #000 60%); mask-image: linear-gradient(transparent, #000 60%) }
+
+/* ---------- Tab bar ---------- */
+.tabbar {
+  --itemw: 72px;
+  position: absolute; z-index: 30; bottom: calc(env(safe-area-inset-bottom, 0px) + 12px); left: 16px; width: 360px;
+  height: 64px; border-radius: 32px; padding: 4px; touch-action: none;
+  transition: width .6s var(--ease-bounce), left .6s var(--ease-bounce);
+}
+.tabclip { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; z-index: 2 }
+.tabtrack { position: absolute; left: 4px; top: 4px; height: 56px; display: flex; transition: transform .6s var(--ease-bounce) }
+.tab {
+  width: var(--itemw); flex: none; height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  color: var(--label); transition: color .25s, opacity .3s;
+}
+.tab .ic { width: 25px; height: 25px; stroke-width: 1.9; transition: transform .5s var(--ease-bounce), stroke-width .2s }
+.tab-label { font: 600 10px/12px var(--font); letter-spacing: .01em; transition: opacity .25s }
+.tab.on, .tab.hover { color: var(--accent) }
+.tab.on .ic { stroke-width: 2.3 }
+.tab.bounce .ic { animation: symBounce .5s var(--ease) }
+@keyframes symBounce { 0% { scale: 1 } 30% { scale: .78 } 65% { scale: 1.14 } 100% { scale: 1 } }
+.lens {
+  position: absolute; left: 4px; top: 4px; height: 56px; width: var(--itemw); border-radius: 28px; z-index: 1;
+  background: var(--lens); transform: translateX(var(--lx, 0px));
+  transition: transform .55s var(--ease-bounce), scale .45s var(--ease-bounce), background .25s, box-shadow .25s, opacity .25s;
+}
+.lens.drag {
+  z-index: 3; scale: 1.16 1.2; background: var(--lens-press);
+  box-shadow: inset 0 1px 0 -.5px var(--glass-rim), inset 0 -1px 0 -.5px var(--glass-rim2), inset 0 0 10px rgba(255, 255, 255, .25), 0 8px 24px -6px var(--glass-shadow);
+}
+.lens.follow { transition: scale .45s var(--ease-bounce), background .25s, box-shadow .25s }
+.tabbar.min .lens { opacity: 0 }
+.tabbar.min .tab-label { opacity: 0 }
+.tabbar.min .tab .ic { transform: translateY(7px) }
+.tabbar.min .tab:not(.on) { opacity: 0 }
+
+/* ---------- Search, chips, segmented ---------- */
+.search { display: flex; align-items: center; gap: 8px; height: 46px; border-radius: 23px; padding: 0 8px 0 14px; color: var(--label2) }
+.search .ic { width: 19px; height: 19px; stroke-width: 2.3 }
+.search input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: none; font-size: 17px; color: var(--label) }
+.search input::placeholder { color: var(--label2) }
+.search input::-webkit-search-cancel-button { display: none }
+.clear { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: var(--label2); transition: opacity .2s, transform .3s var(--ease-bounce) }
+.clear .ic { width: 18px; height: 18px }
+.clear[hidden] { display: none }
+.chips {
+  display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding: 4px max(16px, env(safe-area-inset-left, 0px)) 10px;
+  margin-block: -4px -10px;
+}
+.chips::-webkit-scrollbar { display: none }
+.chip { flex: none; height: 36px; padding: 0 16px; border-radius: 18px; font: 600 15px/36px var(--font); white-space: nowrap; transition: transform .45s var(--ease-bounce), background .25s, color .25s }
+.chip.on { background: var(--accent); color: var(--on-accent) }
+.chip:active { transform: scale(1.08) }
+.seg { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 3px; border-radius: 999px; background: var(--fill2) }
+.seg > button { position: relative; z-index: 1; height: 34px; padding: 0 10px; border-radius: 999px; font: 500 14px/34px var(--font); text-align: center; white-space: nowrap; transition: font-weight .2s }
+.seg > button.on { font-weight: 600 }
+.seg-thumb {
+  position: absolute; top: 3px; bottom: 3px; left: 0; border-radius: 999px; background: var(--seg-thumb);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .12), 0 0 0 .5px rgba(0, 0, 0, .04), inset 0 1px 0 rgba(255, 255, 255, .4);
+  transition: transform .5s var(--ease-bounce), width .5s var(--ease-bounce), scale .3s var(--ease-bounce);
+}
+.seg:active .seg-thumb { scale: 1.06 1.12 }
+.seg.noanim .seg-thumb { transition: none }
+.seg.disabled { opacity: .45; pointer-events: none }
+
+/* ---------- Switch ---------- */
+.switch { position: relative; flex: none; width: 52px; height: 32px; border-radius: 16px; background: var(--fill); transition: background .3s }
+.switch::after {
+  content: ""; position: absolute; top: 2px; left: 2px; width: 28px; height: 28px; border-radius: 14px; background: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .15), 0 1px 1px rgba(0, 0, 0, .16);
+  transition: transform .45s var(--ease-bounce), width .3s var(--ease-bounce), scale .35s var(--ease-bounce), background .2s;
+}
+.switch[aria-checked="true"] { background: var(--green) }
+.switch[aria-checked="true"]::after { transform: translateX(20px) }
+.switch:active::after { width: 34px; scale: 1.15; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px) }
+.switch[aria-checked="true"]:active::after { transform: translateX(14px) }
+
+/* ---------- Widgets (Today) ---------- */
+.widgets { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+.widget {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-height: 164px; padding: 16px;
+  border-radius: 26px; background: var(--card); text-align: left; min-width: 0;
+  -webkit-backdrop-filter: blur(30px) saturate(1.6); backdrop-filter: blur(30px) saturate(1.6);
+}
+.w-label { display: flex; align-items: center; gap: 6px; font: 600 15px/20px var(--font) }
+.w-label .ic { width: 18px; height: 18px; stroke-width: 2.4 }
+.w-big { font: 700 34px/1 var(--font-round); letter-spacing: -.02em; font-variant-numeric: tabular-nums }
+.w-big small { font: 600 15px var(--font); color: var(--label2); letter-spacing: -.01em; margin-left: 3px }
+.w-note { font: 400 13px/18px var(--font); color: var(--label2); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical }
+.w-ring { display: flex; align-items: center; gap: 12px }
+.w-ring svg { width: 58px; height: 58px; flex: none; transform: rotate(-90deg) }
+.favs { display: flex; gap: 14px; overflow-x: auto; scrollbar-width: none; padding: 4px max(16px, env(safe-area-inset-left, 0px)) 6px; margin: -4px calc(-1 * max(16px, env(safe-area-inset-left, 0px))) -6px }
+.favs::-webkit-scrollbar { display: none }
+.fav { flex: none; width: 70px; display: flex; flex-direction: column; align-items: center; gap: 6px; font: 500 12px/15px var(--font); text-align: center }
+.fav span:last-child { width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.bar-row { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 10px 16px }
+.bar-row .bt { display: flex; flex-direction: column; gap: 6px; min-width: 0 }
+.bar-row .bn { font: 400 15px/20px var(--font); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.bar { height: 6px; border-radius: 3px; background: var(--fill2); overflow: hidden }
+.bar i { display: block; height: 100%; border-radius: 3px; background: var(--c); transform-origin: 0 50%; animation: grow .9s var(--ease-soft) both }
+@keyframes grow { from { transform: scaleX(0) } }
+
+/* ---------- Tasks ---------- */
+.check {
+  width: 26px; height: 26px; border-radius: 50%; flex: none; display: grid; place-items: center; color: #fff;
+  box-shadow: inset 0 0 0 2px var(--label3); transition: background .25s, box-shadow .25s, transform .4s var(--ease-bounce);
+}
+.check .ic { width: 15px; height: 15px; stroke-width: 3; stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset .35s .05s var(--ease) }
+.check:active { transform: scale(.85) }
+.task.done .check { background: var(--c); box-shadow: inset 0 0 0 2px var(--c) }
+.task.done .check .ic { stroke-dashoffset: 0 }
+.task.done .row-title { color: var(--label2) }
+.task.leaving { animation: leave .45s .35s var(--ease) both }
+@keyframes leave { to { opacity: 0; transform: translateX(24px) } }
+.tag { display: inline-block; padding: 0 6px; border-radius: 6px; font: 600 11px/17px var(--font); letter-spacing: .02em; color: var(--c); background: color-mix(in srgb, var(--c) 16%, transparent); vertical-align: 1px; margin-right: 2px }
+.overdue { color: var(--red) }
+.example { font: 500 11px/15px var(--font); color: var(--label2); border: .5px solid var(--label3); border-radius: 5px; padding: 0 5px; margin-left: 4px }
+
+/* ---------- Focus ---------- */
+.timer { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 8px 0 4px }
+.ring { position: relative; width: min(290px, 74vw); max-width: 100%; aspect-ratio: 1 }
+.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible }
+.ring .track { stroke: var(--fill2) }
+.ring .prog { stroke: var(--c); transition: stroke-dashoffset .35s linear, stroke .4s; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--c) 45%, transparent)) }
+.ring-mid { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px }
+.ring-time { font: 200 68px/1 var(--font-display); letter-spacing: -.02em; font-variant-numeric: tabular-nums }
+.ring-sub { font: 500 15px var(--font); color: var(--label2) }
+.pick { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 14px 0 7px; border-radius: 23px; font: 600 16px var(--font); max-width: 100% }
+.pick .sicon { --s: 32px; border-radius: 50% }
+.pick .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0 }
+.pick .ic.dd { width: 16px; height: 16px; stroke-width: 2.6; color: var(--label2) }
+.ctrls { display: flex; justify-content: center; gap: 28px }
+.round { width: 86px; height: 86px; border-radius: 50%; display: grid; place-items: center; font: 600 16px var(--font) }
+.round.go { color: var(--green); background: color-mix(in srgb, var(--green) 22%, var(--glass)) }
+.round.hold { color: var(--orange); background: color-mix(in srgb, var(--orange) 22%, var(--glass)) }
+.round[disabled] { opacity: .45; pointer-events: none }
+.dur { width: min(340px, 100%) }
+
+/* ---------- Settings ---------- */
+.swatches { display: flex; flex-wrap: wrap; gap: 12px; padding: 14px 16px 16px }
+.sw { width: 30px; height: 30px; border-radius: 50%; background: var(--c); position: relative; transition: transform .4s var(--ease-bounce) }
+.sw::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; box-shadow: 0 0 0 2.5px var(--c); opacity: 0; scale: .8; transition: opacity .2s, scale .35s var(--ease-bounce) }
+.sw.on::after { opacity: 1; scale: 1 }
+.sw:active { transform: scale(.88) }
+.ricon { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; color: #fff; background: var(--c); flex: none }
+.ricon .ic { width: 18px; height: 18px; stroke-width: 2.2 }
+.stepper { display: flex; border-radius: 10px; background: var(--fill2); overflow: hidden }
+.stepper button { width: 46px; height: 32px; display: grid; place-items: center; transition: background .2s }
+.stepper button:active { background: var(--fill) }
+.stepper button + button { box-shadow: inset .5px 0 0 var(--sep) }
+.stepper .ic { width: 16px; height: 16px; stroke-width: 2.6 }
+.danger { color: var(--red) }
+.seg-row { padding: 12px 16px }
+
+/* ---------- Empty states ---------- */
+.empty { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 36px 24px; text-align: center; color: var(--label2) }
+.empty .ic { width: 46px; height: 46px; stroke-width: 1.6; margin-bottom: 6px; color: var(--label3) }
+.empty b { font: 700 21px/26px var(--font-display); color: var(--label) }
+.empty p { margin: 0; font: 400 15px/20px var(--font); max-width: 32ch; text-wrap: balance }
+.empty .btn { margin-top: 12px }
+
+/* ---------- Buttons ---------- */
+.btn { height: 50px; padding: 0 22px; border-radius: 25px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 17px var(--font); white-space: nowrap }
+.btn .ic { width: 19px; height: 19px; stroke-width: 2.3 }
+.btn-prim { background: var(--accent); color: var(--on-accent) }
+.btn-prim.glass::after { opacity: .55 }
+.btn-red { background: var(--red); color: #fff }
+.btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+
+/* ---------- Menus ---------- */
+.menu {
+  position: fixed; z-index: 70; min-width: 236px; max-width: min(300px, calc(100vw - 24px)); max-height: min(70vh, 560px);
+  overflow-y: auto; overscroll-behavior: contain; padding: 6px; border-radius: 26px; scrollbar-width: none;
+  transform-origin: var(--ox, 50%) var(--oy, 0); animation: menuIn .5s var(--ease-soft) both;
+}
+.menu::-webkit-scrollbar { display: none }
+.menu.measure { visibility: hidden; animation: none }
+.menu.out { animation: menuOut .2s var(--ease) both; pointer-events: none }
+@keyframes menuIn { from { opacity: 0; transform: scale(.3); filter: blur(10px) } 60% { opacity: 1; filter: blur(0) } to { opacity: 1; transform: none; filter: none } }
+@keyframes menuOut { to { opacity: 0; transform: scale(.6); filter: blur(6px) } }
+.mi { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 10px 14px 10px 10px; border-radius: 18px; font: 400 17px/22px var(--font); text-align: left; transition: background .15s }
+.mi:hover, .mi:focus-visible, .mi.hl { background: var(--fill2); outline: 0 }
+.mi .mck { width: 18px; flex: none; color: var(--label) }
+.mi .mck .ic { width: 16px; height: 16px; stroke-width: 2.8 }
+.mi .ml { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.mi .ml small { display: block; font-size: 13px; line-height: 17px; color: var(--label2) }
+.mi > .ic { width: 20px; height: 20px; stroke-width: 2 }
+.mi .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--c); flex: none }
+.mi.danger { color: var(--red) }
+.mhead { padding: 10px 14px 4px 38px; font: 400 13px/18px var(--font); color: var(--label2) }
+.msep { height: .5px; background: var(--sep); margin: 5px 14px }
+.ctx-ov { position: fixed; inset: 0; z-index: 60; background: var(--scrim); -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2); animation: fade .3s var(--ease) both }
+.ctx-ov.out { animation: fade .25s var(--ease) reverse both }
+.ctx-prev { position: fixed !important; z-index: 65; margin: 0; pointer-events: none; border-radius: 20px; overflow: hidden; background: var(--bg2) !important;
+  box-shadow: 0 24px 60px -10px rgba(0, 0, 0, .35); transition: transform .5s var(--ease-soft); padding-left: 16px }
+.ctx-prev.scard { padding: 14px }
+.ctx-prev .row-main { box-shadow: none !important }
+@keyframes fade { from { opacity: 0 } }
+
+/* ---------- Sheets ---------- */
+.sheet-layer { position: fixed; inset: 0; z-index: 50 }
+.sheet-scrim { position: absolute; inset: 0; background: var(--scrim); opacity: 0; transition: opacity .45s var(--ease) }
+.sheet {
+  position: absolute; left: 8px; right: 8px; bottom: calc(env(safe-area-inset-bottom, 0px) + 8px); margin: 0 auto; max-width: 620px;
+  max-height: calc(100% - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 40px);
+  display: flex; flex-direction: column; border-radius: 38px; overflow: hidden;
+  background: var(--sheet-bg); -webkit-backdrop-filter: blur(40px) saturate(1.8); backdrop-filter: blur(40px) saturate(1.8);
+  box-shadow: inset 0 1px 0 -.5px var(--glass-rim), 0 -10px 50px -10px rgba(0, 0, 0, .3);
+  transform: translateY(calc(100% + 60px)); transition: transform .55s var(--ease-sheet);
+}
+.sheet-layer.open .sheet { transform: none }
+.sheet-layer.open .sheet-scrim { opacity: 1 }
+.grabber { width: 38px; height: 5px; border-radius: 3px; background: var(--label3); margin: 7px auto -4px; flex: none }
+.sheet-head { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 8px; padding: 10px 14px 6px; touch-action: none; flex: none }
+.sheet-title { text-align: center; font: 600 17px/22px var(--font); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.sheet-body { overflow-y: auto; overscroll-behavior: contain; padding: 6px 16px calc(env(safe-area-inset-bottom, 0px) + 20px); display: flex; flex-direction: column; gap: 22px; scrollbar-width: none }
+.sheet-body::-webkit-scrollbar { display: none }
+.sheet .group { background: var(--sheet-card); -webkit-backdrop-filter: none; backdrop-filter: none }
+.hero { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding-top: 4px }
+.hero h2 { margin: 0; font: 700 26px/31px var(--font-display); letter-spacing: .01em; text-wrap: balance }
+.hero p { margin: -6px 0 0; color: var(--label2); font-size: 15px }
+.hero .sicon.xl { animation: pop .7s .1s var(--ease-bounce) both }
+@keyframes pop { from { transform: scale(.5); opacity: 0 } }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px }
+.stat { background: var(--sheet-card); border-radius: 20px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; min-width: 0 }
+.stat b { font: 700 22px/26px var(--font-round); font-variant-numeric: tabular-nums; white-space: nowrap }
+.stat span { font: 400 13px/16px var(--font); color: var(--label2) }
+.avatar { width: 38px; height: 38px; border-radius: 50%; flex: none; display: grid; place-items: center; color: #fff; font: 600 15px var(--font-round); background: linear-gradient(#A5ABB8, #858994) }
+.notes { width: 100%; min-height: 110px; resize: vertical; border: 0; outline: 0; background: none; padding: 14px 16px; font-size: 17px; line-height: 22px; display: block }
+.notes::placeholder, .field::placeholder { color: var(--label3) }
+.field { width: 100%; border: 0; outline: 0; background: none; padding: 0 16px; height: 52px; font-size: 17px; display: block }
+.frow { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 16px; min-height: 52px }
+.frow:not(:last-child) { box-shadow: inset 0 -.5px 0 var(--sep) }
+.frow select, .frow input { border: 0; outline: 0; background: var(--fill2); border-radius: 9px; padding: 6px 10px; font-size: 16px; color: var(--accent); max-width: 62%; min-width: 0 }
+.as { padding-top: 22px; gap: 10px }
+.as-text { text-align: center; padding: 0 12px 10px; display: flex; flex-direction: column; gap: 4px }
+.as-text b { font: 600 17px var(--font) }
+.as-text p { margin: 0; color: var(--label2); font-size: 15px }
+.as .btn { width: 100% }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed; z-index: 90; left: 50%; top: calc(env(safe-area-inset-top, 0px) + 10px);
+  display: flex; align-items: center; gap: 8px; padding: 0 20px 0 14px; height: 46px; border-radius: 23px; max-width: calc(100vw - 32px);
+  font: 600 15px var(--font); white-space: nowrap; pointer-events: none;
+  transform: translate(-50%, calc(-100% - 30px)) scale(.8); transition: transform .55s var(--ease-bounce);
+}
+.toast.show { transform: translate(-50%, 0) }
+.toast .ic { width: 20px; height: 20px; color: var(--green); stroke-width: 2.6 }
+.toast span { overflow: hidden; text-overflow: ellipsis }
+
+@media (max-width: 360px) { .widgets { grid-template-columns: 1fr } .ctrls { gap: 18px } }
+@media (min-width: 900px) { .lt { font-size: 40px; line-height: 46px } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important }
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="scene" id="scene">
+    <div class="wallpaper" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <main>
+      <section class="view" id="v-today" aria-label="Today"><div class="content"></div></section>
+      <section class="view" id="v-study" aria-label="Study"><div class="content"></div></section>
+      <section class="view" id="v-tasks" aria-label="Tasks"><div class="content"></div></section>
+      <section class="view" id="v-focus" aria-label="Focus"><div class="content"></div></section>
+      <section class="view" id="v-settings" aria-label="Settings"><div class="content"></div></section>
+    </main>
+    <div class="edge top" id="edge-top"></div>
+    <div class="edge bottom"></div>
+    <header class="navbar" id="navbar">
+      <div class="nav-inner">
+        <div class="nav-slot" id="nav-left"></div>
+        <div class="nav-title" id="nav-title"></div>
+        <div class="nav-slot" id="nav-right" style="justify-content:flex-end"></div>
+      </div>
+    </header>
+    <nav class="tabbar glass" id="tabbar" role="tablist" aria-label="Sections">
+      <div class="lens" id="lens"></div>
+      <div class="tabclip"><div class="tabtrack" id="tabtrack"></div></div>
+    </nav>
+  </div>
+</div>
+<div class="toast glass glass-strong" id="toast" role="status" aria-live="polite"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="lg-defs"></defs></svg>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const uid = () => Math.random().toString(36).slice(2, 10);
+const fold = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const haptic = () => { try { navigator.vibrate && navigator.vibrate(8); } catch (e) {} };
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('study.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem('study.' + k, JSON.stringify(v)); } catch (e) {} }
+};
+
+/* ---------- Icons (SF Symbols-inspired line glyphs) ---------- */
+const ICONS = {
+  today: '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>',
+  study: '<path d="M2.5 5c2.7-1.3 6-1.3 9.5 1v14c-3.5-2.3-6.8-2.3-9.5-1z"/><path d="M21.5 5c-2.7-1.3-6-1.3-9.5 1v14c3.5-2.3 6.8-2.3 9.5-1z"/>',
+  tasks: '<path d="M10 6.5h10M10 12h10M10 17.5h10"/><path d="m3.5 6.5 1.3 1.3 2.4-2.6M3.5 12l1.3 1.3 2.4-2.6M3.5 17.5l1.3 1.3 2.4-2.6"/>',
+  focus: '<circle cx="12" cy="13.5" r="7.8"/><path d="M12 9.5v4.2l2.6 1.6M9.5 2.5h5M19 6l1.4-1.4"/>',
+  settings: '<circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7"/><circle cx="12" cy="12" r="6.6"/>',
+  search: '<circle cx="10.8" cy="10.8" r="6.8"/><path d="m20 20-4.4-4.4"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  minus: '<path d="M5 12h14"/>',
+  more: '<circle cx="5.5" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="18.5" cy="12" r="1.6" fill="currentColor" stroke="none"/>',
+  chevron: '<path d="m9 5.5 6.5 6.5L9 18.5"/>',
+  down: '<path d="m6 9.5 6 6 6-6"/>',
+  star: '<path d="m12 3.3 2.65 5.4 5.95.86-4.3 4.2 1.02 5.92L12 16.9l-5.32 2.8 1.02-5.93-4.3-4.19 5.95-.86z"/>',
+  check: '<path d="m5 12.6 4.4 4.4L19 7.4"/>',
+  x: '<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',
+  xfill: '<circle cx="12" cy="12" r="9.5" fill="currentColor" stroke="none"/><path d="M9 9l6 6M15 9l-6 6" stroke="var(--bg2)" stroke-width="2"/>',
+  trash: '<path d="M4 6.5h16M9.5 6.5V4h5v2.5M6 6.5l.9 12.6A2 2 0 0 0 8.9 21h6.2a2 2 0 0 0 2-1.9L18 6.5M10 10.5v6.5M14 10.5v6.5"/>',
+  grid: '<rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/>',
+  list: '<path d="M9 6h11.5M9 12h11.5M9 18h11.5"/><circle cx="4.3" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="4.3" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="4.3" cy="18" r="1.2" fill="currentColor" stroke="none"/>',
+  textsort: '<path d="M4 6h9M4 12h6M4 18h4M17 4v16M13.5 16.5 17 20l3.5-3.5"/>',
+  folder: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  person: '<circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/>',
+  timer: '<circle cx="12" cy="13.5" r="7.8"/><path d="M12 9.5v4.2l2.6 1.6M9.5 2.5h5"/>',
+  copy: '<rect x="8.5" y="8.5" width="12" height="12" rx="2.5"/><path d="M15.5 8.5V6a2.5 2.5 0 0 0-2.5-2.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"/>',
+  open: '<path d="M14 4h6v6M20 4l-8.5 8.5M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/>',
+  undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
+  calendar: '<rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+  moon: '<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/>',
+  drop: '<path d="M12 3.2s6.5 7 6.5 11.3a6.5 6.5 0 0 1-13 0C5.5 10.2 12 3.2 12 3.2z"/>',
+  sparkle: '<path d="M12 3.5 13.8 10.2 20.5 12l-6.7 1.8L12 20.5l-1.8-6.7L3.5 12l6.7-1.8z"/>',
+  dock: '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 16h10"/>',
+  target: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/>',
+  // Subjects
+  math: '<path d="M4.5 7.5h5M7 5v5M14.5 7.5h5M5 15l4 4M9 15l-4 4M14.5 15.5h5M14.5 18.5h5"/>',
+  leaf: '<path d="M5 19c0-8 4.5-13.5 15-14-.4 9.5-5.5 14-12 14H5z"/><path d="M5 19c3-4 6-6.5 9.5-8"/>',
+  atom: '<circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(120 12 12)"/>',
+  flask: '<path d="M9.5 3.5h5M10.5 3.5v5.8L5 18.4A1.8 1.8 0 0 0 6.5 21h11a1.8 1.8 0 0 0 1.5-2.6l-5.5-9.1V3.5"/><path d="M7.5 15h9"/>',
+  columns: '<path d="M3.5 20.5h17M5.5 17.5h13M6.5 10v7.5M10 10v7.5M14 10v7.5M17.5 10v7.5M3.5 10h17L12 3.5z"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/>',
+  people: '<circle cx="9" cy="8" r="3.2"/><path d="M3 19.5a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.1a5 5 0 0 1 5.5 5.4"/>',
+  map: '<path d="M9 4.5 3.5 6.5v13l5.5-2 6 2 5.5-2v-13l-5.5 2z"/><path d="M9 4.5v13M15 6.5v13"/>',
+  laptop: '<rect x="4.5" y="5" width="15" height="10.5" rx="1.8"/><path d="M2.5 19h19"/>',
+  brush: '<path d="M19 3.5c.9.9.9 2.3 0 3.2l-7.3 7.3-3.2-3.2L15.8 3.5c.9-.9 2.3-.9 3.2 0z"/><path d="M8.5 10.8c-2.4 0-4 1.6-4 4 0 1.6-.8 2.6-2 3.2 4.6 2 9.2.4 9.2-4z"/>',
+  music: '<path d="M9 17.5V5.5l11-2v12"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/>',
+  dumbbell: '<path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/>'
+};
+const icon = (n, c = '') => `<svg class="ic ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n] || ''}</svg>`;
+
+/* ---------- Subjects ---------- */
+const CATS = [
+  { id: 'lang', name: 'Languages', short: 'Languages' },
+  { id: 'math', name: 'Mathematics', short: 'Maths' },
+  { id: 'sci', name: 'Sciences', short: 'Sciences' },
+  { id: 'hum', name: 'Humanities & Society', short: 'Humanities' },
+  { id: 'arts', name: 'Arts, Technology & Sport', short: 'Arts & Tech' }
+];
+const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
+const SUBJECTS = [
+  { id: 'POR', name: 'Português', teachers: ['Sandra Lopes'], cat: 'lang', color: 'red', glyph: 'Pt' },
+  { id: 'ING', name: 'Inglês', teachers: ['Andrew M'], cat: 'lang', color: 'blue', glyph: 'En' },
+  { id: 'ENGLISH', name: 'English', teachers: ['Andrew M'], cat: 'lang', color: 'indigo', glyph: 'Aa' },
+  { id: 'FR', name: 'Francês', teachers: ['Maria Gallego'], cat: 'lang', color: 'teal', glyph: 'Fr' },
+  { id: 'ESP', name: 'Espanhol', teachers: ['Maria Cobas'], cat: 'lang', color: 'orange', glyph: 'Es' },
+  { id: 'MAT', name: 'Matemática', teachers: ['Frankelim'], cat: 'math', color: 'purple', icon: 'math' },
+  { id: 'MATHS', name: 'Mathematics', teachers: ['Nelson Agostinh'], cat: 'math', color: 'pink', glyph: 'π' },
+  { id: 'CN', name: 'Ciências Naturais', teachers: ['Lívia A'], cat: 'sci', color: 'green', icon: 'leaf' },
+  { id: 'FQ', name: 'Físico-Química', teachers: ['Diogo Madeira'], cat: 'sci', color: 'cyan', icon: 'atom' },
+  { id: 'SCIENCE', name: 'Science', teachers: ['Diogo Madeira', 'Karen Monteiro'], cat: 'sci', color: 'mint', icon: 'flask' },
+  { id: 'HIST', name: 'História', teachers: ['Cheila Nunes'], cat: 'hum', color: 'brown', icon: 'columns' },
+  { id: 'GEO', name: 'Geografia', teachers: ['Vasco Rodrigues'], cat: 'hum', color: 'blue', icon: 'globe' },
+  { id: 'Cidadania', name: 'Cidadania e Desenvolvimento', teachers: ['Lívia A'], cat: 'hum', color: 'yellow', icon: 'people' },
+  { id: 'Global_P', name: 'Global Perspectives', teachers: ['José Santos'], cat: 'hum', color: 'teal', icon: 'map' },
+  { id: 'ICT', name: 'ICT', teachers: ['José Santos'], cat: 'arts', color: 'gray', icon: 'laptop', full: 'Information & Communication Technology' },
+  { id: 'EV', name: 'Educação Visual', teachers: ['Carla Alves'], cat: 'arts', color: 'pink', icon: 'brush' },
+  { id: 'EM', name: 'Educação Musical', teachers: ['Carlos Costa'], cat: 'arts', color: 'purple', icon: 'music' },
+  { id: 'EF', name: 'Educação Física', teachers: ['Tiago Severino'], cat: 'arts', color: 'orange', icon: 'dumbbell' }
+];
+const BY = Object.fromEntries(SUBJECTS.map(s => [s.id, s]));
+const TEACHERS = [...new Set(SUBJECTS.flatMap(s => s.teachers))];
+const ACCENTS = ['blue', 'indigo', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'mint', 'teal', 'cyan', 'brown'];
+const TABS = [
+  { id: 'today', label: 'Today', icon: 'today' },
+  { id: 'study', label: 'Study', icon: 'study' },
+  { id: 'tasks', label: 'Tasks', icon: 'tasks' },
+  { id: 'focus', label: 'Focus', icon: 'focus' },
+  { id: 'settings', label: 'Settings', icon: 'settings' }
+];
+
+const sicon = (s, size = '') => `<span class="sicon ${size}" style="--c:var(--${s.color})">${s.icon ? icon(s.icon) : `<b>${esc(s.glyph)}</b>`}</span>`;
+const initials = n => n.split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+
+/* ---------- Dates ---------- */
+const DAY = 864e5;
+const sod = (t = Date.now()) => { const d = new Date(t); d.setHours(0, 0, 0, 0); return d.getTime(); };
+const isoDay = t => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+const parseDay = s => { const [y, m, d] = String(s).split('-').map(Number); return new Date(y, (m || 1) - 1, d || 1).getTime(); };
+const dueDiff = t => Math.round((parseDay(t.due) - sod()) / DAY);
+function dueLabel(t) {
+  const d = dueDiff(t), at = new Date(parseDay(t.due));
+  if (d < 0) return 'Overdue · ' + at.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+  if (d === 0) return 'Today';
+  if (d === 1) return 'Tomorrow';
+  if (d < 7) return at.toLocaleDateString('en-GB', { weekday: 'long' });
+  return at.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+}
+const fmtMin = m => m < 60 ? `${m} min` : `${Math.floor(m / 60)} h${m % 60 ? ' ' + (m % 60) + ' min' : ''}`;
+const fmtClock = ms => { const s = Math.ceil(ms / 1000); return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; };
+
+/* ---------- State ---------- */
+function sampleTasks() {
+  const t = sod();
+  return [
+    { id: uid(), title: 'Exercícios da página 48', subj: 'MAT', type: 'Homework', due: isoDay(t + DAY), done: false, example: true },
+    { id: uid(), title: 'Teste de Ciências Naturais', subj: 'CN', type: 'Test', due: isoDay(t + 3 * DAY), done: false, example: true },
+    { id: uid(), title: 'Reading log, chapter 4', subj: 'ENGLISH', type: 'Homework', due: isoDay(t + 5 * DAY), done: false, example: true },
+    { id: uid(), title: 'Project draft', subj: 'Global_P', type: 'Project', due: isoDay(t + 9 * DAY), done: false, example: true }
+  ];
+}
+const S = {
+  tab: store.get('tab', 'study'),
+  favs: store.get('favs', []),
+  tasks: store.get('tasks', null) || sampleTasks(),
+  sessions: store.get('sessions', []),
+  notes: store.get('notes', {}),
+  view: store.get('view', 'list'),
+  sort: store.get('sort', 'category'),
+  filter: 'all', query: '', taskSeg: 'upcoming',
+  settings: Object.assign({ theme: 'auto', accent: 'blue', minimize: true, rt: false, wall: true, goal: 60 }, store.get('settings', {})),
+  focus: Object.assign({ dur: 25, subj: 'MAT', running: false, endAt: 0, remaining: 25 * 60000 }, store.get('focus', {}))
+};
+if (!TABS.some(t => t.id === S.tab)) S.tab = 'study';
+if (!BY[S.focus.subj]) S.focus.subj = 'MAT';
+const save = (...k) => k.forEach(key => store.set(key, S[key]));
+
+const minutesSince = (t0, subj) => S.sessions.filter(x => x.at >= t0 && (!subj || x.subj === subj)).reduce((a, x) => a + x.min, 0);
+const openTasks = () => S.tasks.filter(t => !t.done).sort((a, b) => parseDay(a.due) - parseDay(b.due));
+
+/* ---------- Theme ---------- */
+const root = document.documentElement;
+const hostTheme = root.getAttribute('data-theme');
+function applySettings() {
+  const t = S.settings.theme;
+  if (t === 'auto') { hostTheme ? root.setAttribute('data-theme', hostTheme) : root.removeAttribute('data-theme'); }
+  else root.setAttribute('data-theme', t);
+  root.dataset.accent = S.settings.accent;
+  root.classList.toggle('rt', !!S.settings.rt);
+  root.classList.toggle('nowall', !S.settings.wall);
+}
+
+/* ---------- Components ---------- */
+function seg(key, opts, value, extra = '') {
+  return `<div class="seg noanim ${extra}" data-seg="${key}" role="radiogroup"><span class="seg-thumb"></span>${opts.map(([v, l]) =>
+    `<button role="radio" aria-checked="${v === value}" class="${v === value ? 'on' : ''}" data-action="seg" data-v="${esc(v)}">${esc(l)}</button>`).join('')}</div>`;
+}
+function placeSegs(scope = document) {
+  $$('.seg', scope).forEach(s => {
+    const on = $('button.on', s), th = $('.seg-thumb', s);
+    if (!on || !th) return;
+    th.style.width = on.offsetWidth + 'px';
+    th.style.transform = `translateX(${on.offsetLeft}px)`;
+    if (s.classList.contains('noanim')) requestAnimationFrame(() => requestAnimationFrame(() => s.classList.remove('noanim')));
+  });
+}
+const sw = (key, on, label) => `<button class="switch" role="switch" aria-checked="${!!on}" aria-label="${esc(label)}" data-action="switch" data-key="${key}"></button>`;
+const emptyState = (ic, title, text, btn = '') => `<div class="empty">${icon(ic)}<b>${esc(title)}</b><p>${esc(text)}</p>${btn}</div>`;
+
+function subjectRow(s) {
+  const fav = S.favs.includes(s.id);
+  return `<button class="row" data-action="open-subj" data-id="${s.id}" data-ctx="subj">
+    ${sicon(s)}
+    <span class="row-main"><span class="row-text"><span class="row-title">${esc(s.name)}</span><span class="row-sub">${esc(s.id)} · ${esc(s.teachers.join(', '))}</span></span>
+    ${fav ? `<span class="star-on" aria-label="Favourite">${icon('star')}</span>` : ''}<span class="chev">${icon('chevron')}</span></span></button>`;
+}
+function subjectCard(s) {
+  const fav = S.favs.includes(s.id);
+  return `<button class="scard" data-action="open-subj" data-id="${s.id}" data-ctx="subj">
+    ${sicon(s, 'm')}${fav ? `<span class="star-on">${icon('star')}</span>` : ''}
+    <span class="t"><span class="code">${esc(s.id)}</span><span class="name">${esc(s.name)}</span><span class="who">${esc(s.teachers.join(', '))}</span></span></button>`;
+}
+function taskRow(t) {
+  const s = BY[t.subj] || SUBJECTS[0], d = dueDiff(t);
+  return `<div class="row task tap ${t.done ? 'done' : ''}" data-ctx="task" data-id="${t.id}" style="--c:var(--${s.color})">
+    <button class="check" data-action="toggle-task" data-id="${t.id}" aria-label="${t.done ? 'Mark as not done' : 'Mark as done'}">${icon('check')}</button>
+    <span class="row-main" data-action="open-subj" data-id="${s.id}"><span class="row-text"><span class="row-title">${esc(t.title)}</span>
+    <span class="row-sub"><span class="tag">${esc(s.id)}</span> ${esc(t.type)} · <span class="${!t.done && d < 0 ? 'overdue' : ''}">${esc(dueLabel(t))}</span>${t.example ? '<span class="example">Example</span>' : ''}</span></span></span></div>`;
+}
+
+/* ---------- Views ---------- */
+function renderToday() {
+  const t0 = sod(), mins = minutesSince(t0), goal = S.settings.goal, pct = Math.min(1, mins / goal);
+  const open = openTasks(), week = open.filter(t => dueDiff(t) < 7), next = open.slice(0, 3);
+  const favs = S.favs.map(id => BY[id]).filter(Boolean);
+  const totals = {};
+  S.sessions.filter(x => x.at >= t0 - 6 * DAY).forEach(x => { totals[x.subj] = (totals[x.subj] || 0) + x.min; });
+  const top = Object.entries(totals).filter(([id]) => BY[id]).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  const max = top.length ? top[0][1] : 1;
+  const C = 2 * Math.PI * 24;
+  const date = new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+  const hr = new Date().getHours();
+  const greet = hr < 12 ? 'Good morning' : hr < 19 ? 'Good afternoon' : 'Good evening';
+  return `
+  <div class="head"><p class="eyebrow">${esc(date)}</p><h1 class="lt">Today</h1><p class="subtitle">${greet}. ${open.length ? `You have ${open.length} open task${open.length > 1 ? 's' : ''}.` : 'Nothing due. Enjoy it.'}</p></div>
+  <div class="widgets">
+    <button class="widget press-in" data-action="go" data-go="focus">
+      <span class="w-label" style="color:var(--green)">${icon('timer')}Focus</span>
+      <span class="w-ring"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="24" fill="none" stroke="var(--fill2)" stroke-width="7"/>
+        <circle cx="29" cy="29" r="24" fill="none" stroke="var(--green)" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C * (1 - pct)}" style="transition:stroke-dashoffset 1s var(--ease-soft)"/></svg>
+        <span><span class="w-big">${mins}<small>min</small></span></span></span>
+      <span class="w-note">${mins >= goal ? 'Daily goal reached.' : `${goal - mins} min left of your ${goal} min goal`}</span>
+    </button>
+    <button class="widget press-in" data-action="go" data-go="tasks">
+      <span class="w-label" style="color:var(--orange)">${icon('calendar')}This Week</span>
+      <span class="w-big">${week.length}<small>due</small></span>
+      <span class="w-note">${next[0] ? esc(next[0].title) + ' · ' + esc(dueLabel(next[0])) : 'No tasks due in the next 7 days.'}</span>
+    </button>
+  </div>
+  <section class="sec">
+    <h2 class="sec-h">Favourites <button class="link" data-action="go" data-go="study">All Subjects</button></h2>
+    ${favs.length ? `<div class="favs">${favs.map(s => `<button class="fav press-in" data-action="open-subj" data-id="${s.id}" data-ctx="subj">${sicon(s, 'l')}<span>${esc(s.id)}</span></button>`).join('')}</div>`
+      : `<div class="group">${emptyState('star', 'No Favourites Yet', 'Touch and hold a subject in Study, then choose Add to Favourites.')}</div>`}
+  </section>
+  <section class="sec">
+    <h2 class="sec-h">Up Next <button class="link" data-action="add-task">Add Task</button></h2>
+    <div class="group">${next.length ? next.map(taskRow).join('') : emptyState('check', 'All Caught Up', 'Homework, tests and projects you add will appear here.')}</div>
+  </section>
+  <section class="sec">
+    <h2 class="sec-h">Focus This Week</h2>
+    <div class="group">${top.length ? top.map(([id, m]) => { const s = BY[id]; return `<div class="bar-row" style="--c:var(--${s.color})">${sicon(s)}<div class="bt"><span class="bn">${esc(s.name)}</span><span class="bar"><i style="width:${Math.max(4, m / max * 100)}%"></i></span></div><span class="row-val">${fmtMin(m)}</span></div>`; }).join('')
+      : emptyState('timer', 'No Sessions Yet', 'Start a focus session and your time per subject shows up here.', '<button class="btn btn-prim glass press" data-action="go" data-go="focus">Start Focus</button>')}</div>
+  </section>`;
+}
+
+function renderStudyShell() {
+  return `
+  <div class="head"><h1 class="lt">Study</h1><p class="subtitle">${SUBJECTS.length} subjects · ${TEACHERS.length} teachers</p></div>
+  <label class="search glass">${icon('search')}<input id="q" type="search" placeholder="Subjects, codes, teachers" autocomplete="off" enterkeyhint="search" aria-label="Search subjects"><button class="clear" id="q-clear" data-action="clear-search" aria-label="Clear search" hidden>${icon('xfill')}</button></label>
+  <div class="chips" id="chips" role="tablist" aria-label="Filter"></div>
+  <div id="study-results" style="display:flex;flex-direction:column;gap:26px"></div>`;
+}
+function renderChips() {
+  const opts = [['all', 'All'], ['fav', 'Favourites'], ...CATS.map(c => [c.id, c.short])];
+  return opts.map(([v, l]) => `<button class="chip ${v === S.filter ? 'on' : 'glass'}" role="tab" aria-selected="${v === S.filter}" data-action="filter" data-v="${v}">${l}</button>`).join('');
+}
+function renderStudyResults() {
+  const q = fold(S.query.trim());
+  let list = SUBJECTS.filter(s => {
+    if (S.filter === 'fav' && !S.favs.includes(s.id)) return false;
+    if (S.filter !== 'all' && S.filter !== 'fav' && s.cat !== S.filter) return false;
+    if (!q) return true;
+    return fold([s.id, s.name, s.full || '', s.teachers.join(' '), CAT[s.cat].name].join(' ')).includes(q);
+  });
+  if (!list.length) {
+    if (S.filter === 'fav' && !q) return `<div class="group">${emptyState('star', 'No Favourites', 'Touch and hold any subject, then choose Add to Favourites.')}</div>`;
+    return emptyState('search', `No Results for “${S.query.trim()}”`, 'Check the spelling or try a subject code, like MAT or HIST.');
+  }
+  let sections;
+  if (S.sort === 'name') {
+    sections = [{ title: 'A–Z', items: [...list].sort((a, b) => a.name.localeCompare(b.name, 'pt')) }];
+  } else if (S.sort === 'teacher') {
+    const m = new Map();
+    list.forEach(s => s.teachers.forEach(t => { if (!m.has(t)) m.set(t, []); m.get(t).push(s); }));
+    sections = [...m.entries()].sort((a, b) => a[0].localeCompare(b[0], 'pt')).map(([t, items]) => ({ title: t, items }));
+  } else {
+    sections = CATS.map(c => ({ title: c.name, items: list.filter(s => s.cat === c.id) })).filter(x => x.items.length);
+  }
+  return sections.map(sec => `<section class="sec"><h2 class="sec-h">${esc(sec.title)}<span class="row-val" style="font-size:15px;font-weight:400">${sec.items.length}</span></h2>
+    ${S.view === 'grid' ? `<div class="sgrid">${sec.items.map(subjectCard).join('')}</div>` : `<div class="group">${sec.items.map(subjectRow).join('')}</div>`}</section>`).join('');
+}
+
+function renderTasks() {
+  const t0 = sod();
+  let body;
+  if (S.taskSeg === 'upcoming') {
+    const open = openTasks();
+    const buckets = [['Overdue', t => dueDiff(t) < 0], ['Today', t => dueDiff(t) === 0], ['Tomorrow', t => dueDiff(t) === 1], ['This Week', t => dueDiff(t) > 1 && dueDiff(t) < 7], ['Later', t => dueDiff(t) >= 7]];
+    body = open.length ? buckets.map(([n, f]) => { const it = open.filter(f); return it.length ? `<section class="sec"><h2 class="sec-h ${n === 'Overdue' ? 'overdue' : ''}">${n}</h2><div class="group">${it.map(taskRow).join('')}</div></section>` : ''; }).join('')
+      : emptyState('check', 'All Caught Up', 'Tap + to add homework, tests and projects.', '<button class="btn btn-prim glass press" data-action="add-task">' + icon('plus') + 'New Task</button>');
+  } else {
+    const done = S.tasks.filter(t => t.done).sort((a, b) => (b.doneAt || 0) - (a.doneAt || 0));
+    body = done.length ? `<section class="sec"><h2 class="sec-h">Completed <button class="link" data-action="clear-done">Clear</button></h2><div class="group">${done.map(taskRow).join('')}</div></section>`
+      : emptyState('tasks', 'Nothing Completed', 'Tasks you tick off are kept here.');
+  }
+  return `<div class="head"><h1 class="lt">Tasks</h1><p class="subtitle">${S.tasks.filter(t => !t.done).length} open · ${S.tasks.filter(t => t.done).length} done</p></div>
+    ${seg('taskSeg', [['upcoming', 'Upcoming'], ['done', 'Completed']], S.taskSeg)}${body}`;
+}
+
+function renderFocus() {
+  const f = S.focus, s = BY[f.subj], rem = focusRemaining(), idle = !f.running && rem === f.dur * 60000;
+  const C = 2 * Math.PI * 130, pct = 1 - rem / (f.dur * 60000);
+  const today = S.sessions.filter(x => x.at >= sod()).sort((a, b) => b.at - a.at);
+  return `<div class="head"><h1 class="lt">Focus</h1><p class="subtitle">${fmtMin(minutesSince(sod()))} today · goal ${S.settings.goal} min</p></div>
+  <div class="timer" style="--c:var(--${s.color})">
+    <button class="pick glass press" data-action="focus-pick" aria-label="Choose subject">${sicon(s)}<span class="nm">${esc(s.name)}</span>${icon('down', 'dd')}</button>
+    <div class="ring"><svg viewBox="0 0 290 290"><circle class="track" cx="145" cy="145" r="130" fill="none" stroke-width="14"/>
+      <circle class="prog" id="ring-prog" cx="145" cy="145" r="130" fill="none" stroke-width="14" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C * (1 - pct)}"/></svg>
+      <div class="ring-mid"><span class="ring-time" id="ring-time">${fmtClock(rem)}</span><span class="ring-sub">${f.running ? 'Focusing' : idle ? `${f.dur} minutes` : 'Paused'}</span></div></div>
+    ${seg('dur', [['15', '15 min'], ['25', '25 min'], ['45', '45 min'], ['60', '60 min']], String(f.dur), 'dur' + (idle ? '' : ' disabled'))}
+    <div class="ctrls">
+      <button class="round glass press" data-action="focus-cancel" ${idle ? 'disabled' : ''}>Cancel</button>
+      ${f.running ? `<button class="round hold glass press" data-action="focus-pause">Pause</button>` : `<button class="round go glass press" data-action="focus-start">${idle ? 'Start' : 'Resume'}</button>`}
+    </div>
+  </div>
+  <section class="sec"><h2 class="sec-h">Today’s Sessions</h2>
+    <div class="group">${today.length ? today.map(x => { const ss = BY[x.subj] || s; return `<div class="row">${sicon(ss)}<span class="row-main"><span class="row-text"><span class="row-title">${esc(ss.name)}</span><span class="row-sub">${new Date(x.at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</span></span><span class="row-val">${fmtMin(x.min)}</span></span></div>`; }).join('')
+      : emptyState('timer', 'No Sessions Today', 'Pick a subject, choose a length and press Start.')}</div>
+  </section>`;
+}
+
+function renderSettings() {
+  const st = S.settings;
+  const row = (c, ic, label, trail) => `<div class="row"><span class="ricon" style="--c:var(--${c})">${icon(ic)}</span><span class="row-main"><span class="row-text"><span class="row-title">${label}</span></span>${trail}</span></div>`;
+  return `<div class="head"><h1 class="lt">Settings</h1></div>
+  <section class="sec"><h2 class="sec-h">Appearance</h2>
+    <div class="group">
+      <div class="seg-row">${seg('theme', [['auto', 'Automatic'], ['light', 'Light'], ['dark', 'Dark']], st.theme)}</div>
+      <div class="row" style="flex-direction:column;align-items:stretch;padding-left:0"><span class="row-main" style="padding-left:16px;box-shadow:inset 0 -.5px 0 var(--sep), inset 0 .5px 0 var(--sep)"><span class="row-text"><span class="row-title">Accent Colour</span></span><span class="row-val" style="text-transform:capitalize">${st.accent}</span></span>
+        <div class="swatches" role="radiogroup" aria-label="Accent colour">${ACCENTS.map(c => `<button class="sw ${c === st.accent ? 'on' : ''}" style="--c:var(--${c})" role="radio" aria-checked="${c === st.accent}" aria-label="${c}" data-action="accent" data-v="${c}"></button>`).join('')}</div></div>
+    </div></section>
+  <section class="sec"><h2 class="sec-h">Liquid Glass</h2>
+    <div class="group">
+      ${row('blue', 'dock', 'Minimise Tab Bar on Scroll', sw('minimize', st.minimize, 'Minimise tab bar on scroll'))}
+      ${row('pink', 'sparkle', 'Animated Wallpaper', sw('wall', st.wall, 'Animated wallpaper'))}
+      ${row('gray', 'drop', 'Reduce Transparency', sw('rt', st.rt, 'Reduce transparency'))}
+    </div>
+    <p class="sec-foot">Reduce Transparency replaces glass with solid backgrounds for better contrast.</p></section>
+  <section class="sec"><h2 class="sec-h">Focus</h2>
+    <div class="group">
+      ${row('green', 'target', 'Daily Goal', `<span class="row-val">${st.goal} min</span><span class="stepper"><button data-action="goal" data-d="-15" aria-label="Decrease goal">${icon('minus')}</button><button data-action="goal" data-d="15" aria-label="Increase goal">${icon('plus')}</button></span>`)}
+    </div></section>
+  <section class="sec"><h2 class="sec-h">Data</h2>
+    <div class="group">
+      <button class="row" data-action="reset-focus"><span class="row-main"><span class="row-text"><span class="row-title danger">Reset Focus History</span></span></span></button>
+      <button class="row" data-action="delete-tasks"><span class="row-main"><span class="row-text"><span class="row-title danger">Delete All Tasks</span></span></span></button>
+    </div>
+    <p class="sec-foot">Your tasks, notes and focus history are saved on this device only.</p></section>`;
+}
+
+const views = { today: $('#v-today'), study: $('#v-study'), tasks: $('#v-tasks'), focus: $('#v-focus'), settings: $('#v-settings') };
+function renderStudy() {
+  const c = $('.content', views.study);
+  if (!c.dataset.built) { c.innerHTML = renderStudyShell(); c.dataset.built = '1'; }
+  $('#chips').innerHTML = renderChips();
+  $('#study-results').innerHTML = renderStudyResults();
+}
+function render(only) {
+  const all = !only;
+  if (all || only === 'today') $('.content', views.today).innerHTML = renderToday();
+  if (all || only === 'study') renderStudy();
+  if (all || only === 'tasks') $('.content', views.tasks).innerHTML = renderTasks();
+  if (all || only === 'focus') $('.content', views.focus).innerHTML = renderFocus();
+  if (all || only === 'settings') $('.content', views.settings).innerHTML = renderSettings();
+  placeSegs();
+}
+
+/* ---------- Nav bar ---------- */
+const NAV = {
+  today: { right: [['add-task', 'plus', 'New task']] },
+  study: { right: [['study-view', S.view === 'grid' ? 'list' : 'grid', 'Change layout'], ['study-menu', 'more', 'More']] },
+  tasks: { right: [['add-task', 'plus', 'New task', 'tint']] },
+  focus: { right: [] },
+  settings: { right: [] }
+};
+function updateNav() {
+  NAV.study.right[0][1] = S.view === 'grid' ? 'list' : 'grid';
+  const n = NAV[S.tab];
+  $('#nav-right').innerHTML = n.right.map(([a, ic, label, cls]) => `<button class="nbtn glass press ${cls || ''}" data-action="${a}" aria-label="${label}">${icon(ic)}</button>`).join('');
+  $('#nav-title').textContent = TABS.find(t => t.id === S.tab).label;
+  onScroll(true);
+}
+
+/* ---------- Tab bar ---------- */
+const bar = $('#tabbar'), lens = $('#lens'), track = $('#tabtrack');
+track.innerHTML = TABS.map(t => `<button class="tab" role="tab" data-action="tab" data-tab="${t.id}" aria-label="${t.label}"><span>${icon(t.icon)}</span><span class="tab-label">${t.label}</span></button>`).join('');
+const tabEls = $$('.tab', track);
+let tabIndex = TABS.findIndex(t => t.id === S.tab), itemW = 72, barW = 360, minimized = false;
+function layoutBar() {
+  barW = Math.min(innerWidth - 32, 440);
+  itemW = (barW - 8) / TABS.length;
+  bar.style.setProperty('--itemw', itemW + 'px');
+  applyBar();
+  buildGlassFilters();
+}
+function applyBar() {
+  bar.classList.toggle('min', minimized);
+  if (minimized) {
+    bar.style.width = '64px'; bar.style.left = '16px';
+    track.style.transform = `translateX(${(56 - itemW) / 2 - tabIndex * itemW}px)`;
+  } else {
+    bar.style.width = barW + 'px'; bar.style.left = (innerWidth - barW) / 2 + 'px';
+    track.style.transform = '';
+  }
+  lens.style.setProperty('--lx', tabIndex * itemW + 'px');
+  tabEls.forEach((t, i) => { t.classList.toggle('on', i === tabIndex); t.setAttribute('aria-selected', i === tabIndex); });
+}
+function setMin(v) { if (minimized === v) return; minimized = v; applyBar(); }
+function selectTab(i) {
+  const id = TABS[i].id, v = views[id];
+  if (i === tabIndex && v.classList.contains('active')) { v.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+  tabIndex = i; S.tab = id; save('tab');
+  Object.values(views).forEach(x => x.classList.toggle('active', x === v));
+  const el = tabEls[i]; el.classList.remove('bounce'); void el.offsetWidth; el.classList.add('bounce');
+  haptic(); lastY = v.scrollTop; setMin(false); applyBar(); updateNav();
+  if (id === 'today' || id === 'focus') render(id);
+}
+let drag = null;
+bar.addEventListener('pointerdown', e => {
+  if (minimized || e.button > 0) return;
+  const r = bar.getBoundingClientRect();
+  drag = { x0: e.clientX, r, moved: false, idx: tabIndex, id: e.pointerId };
+  const i = Math.max(0, Math.min(TABS.length - 1, Math.floor((e.clientX - r.left - 4) / itemW)));
+  lens.classList.add('drag');
+  lens.style.setProperty('--lx', i * itemW + 'px');
+  drag.idx = i;
+});
+bar.addEventListener('pointermove', e => {
+  if (!drag || e.pointerId !== drag.id) return;
+  if (!drag.moved && Math.abs(e.clientX - drag.x0) > 6) { drag.moved = true; lens.classList.add('follow'); try { bar.setPointerCapture(e.pointerId); } catch (_) {} }
+  if (!drag.moved) return;
+  const lx = Math.max(-6, Math.min((TABS.length - 1) * itemW + 6, e.clientX - drag.r.left - 4 - itemW / 2));
+  lens.style.setProperty('--lx', lx + 'px');
+  const i = Math.max(0, Math.min(TABS.length - 1, Math.round(lx / itemW)));
+  if (i !== drag.idx) haptic();
+  drag.idx = i;
+  tabEls.forEach((t, k) => t.classList.toggle('hover', k === i));
+});
+function endDrag(commit) {
+  if (!drag) return;
+  const d = drag; drag = null;
+  lens.classList.remove('drag', 'follow');
+  tabEls.forEach(t => t.classList.remove('hover'));
+  if (commit && d.moved) { tabSuppress = true; selectTab(d.idx); setTimeout(() => { tabSuppress = false; }, 50); }
+  else applyBar();
+}
+let tabSuppress = false;
+bar.addEventListener('pointerup', () => endDrag(true));
+bar.addEventListener('pointercancel', () => endDrag(false));
+bar.addEventListener('lostpointercapture', () => endDrag(true));
+
+/* ---------- Liquid Glass refraction maps ---------- */
+const refractOK = /Chrome\/\d+/.test(navigator.userAgent) && !/Firefox/.test(navigator.userAgent) && typeof CSS !== 'undefined';
+function dispMap(w, h, r, edge) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const ctx = c.getContext('2d'), img = ctx.createImageData(w, h), D = img.data;
+  const hw = w / 2, hh = h / 2;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const px = x + .5 - hw, py = y + .5 - hh;
+    const qx = Math.abs(px) - (hw - r), qy = Math.abs(py) - (hh - r);
+    const ox = Math.max(qx, 0), oy = Math.max(qy, 0);
+    const sd = Math.hypot(ox, oy) + Math.min(Math.max(qx, qy), 0) - r;
+    let gx = 0, gy = 0;
+    if (qx > 0 && qy > 0) { const l = Math.hypot(qx, qy) || 1; gx = qx / l; gy = qy / l; }
+    else if (qx > qy) gx = 1; else gy = 1;
+    gx *= Math.sign(px) || 1; gy *= Math.sign(py) || 1;
+    const dist = -sd, t = dist < edge ? Math.pow(1 - Math.max(0, dist) / edge, 2) : 0;
+    const i = (y * w + x) * 4;
+    D[i] = 128 - gx * t * 127; D[i + 1] = 128 - gy * t * 127; D[i + 2] = 128; D[i + 3] = 255;
+  }
+  ctx.putImageData(img, 0, 0);
+  return c.toDataURL();
+}
+const glassFilter = (id, w, h, r, edge, scale) => {
+  w = Math.round(w); h = Math.round(h);
+  return `<filter id="${id}" x="0" y="0" width="${w}" height="${h}" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feImage href="${dispMap(w, h, Math.min(r, w / 2, h / 2), edge)}" x="0" y="0" width="${w}" height="${h}" preserveAspectRatio="none" result="m"/>
+    <feDisplacementMap in="SourceGraphic" in2="m" scale="${scale}" xChannelSelector="R" yChannelSelector="G"/></filter>`;
+};
+let builtW = 0;
+function buildGlassFilters() {
+  if (!refractOK || builtW === barW) return;
+  builtW = barW;
+  $('#lg-defs').innerHTML = [
+    glassFilter('lg-bar', barW, 64, 32, 20, 34),
+    glassFilter('lg-min', 64, 64, 32, 18, 26),
+    glassFilter('lg-btn', 44, 44, 22, 14, 20),
+    glassFilter('lg-round', 86, 86, 43, 22, 28),
+    glassFilter('lg-lens', itemW, 56, 28, 18, 30)
+  ].join('');
+  root.classList.add('refract');
+}
+
+/* ---------- Scroll: large title, edge effect, tab bar minimise ---------- */
+let lastY = 0;
+const edgeTop = $('#edge-top'), navbar = $('#navbar');
+function onScroll(force) {
+  const v = views[S.tab], y = v.scrollTop;
+  navbar.classList.toggle('scrolled', y > 46);
+  edgeTop.classList.toggle('on', y > 2);
+  const head = $('.head', v);
+  if (head) head.style.transform = y < 0 ? `scale(${1 + Math.min(-y / 700, .08)})` : '';
+  if (force !== true && S.settings.minimize) {
+    const dy = y - lastY;
+    if (y > 90 && dy > 5) setMin(true);
+    else if (dy < -5 || y < 40) setMin(false);
+  }
+  lastY = y;
+}
+Object.values(views).forEach(v => v.addEventListener('scroll', () => { if (v === views[S.tab]) onScroll(); }, { passive: true }));
+
+/* ---------- Toast ---------- */
+let toastT;
+function toast(text, ic = 'check') {
+  const t = $('#toast');
+  t.innerHTML = icon(ic) + `<span>${esc(text)}</span>`;
+  t.classList.add('show');
+  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 1900);
+}
+
+/* ---------- Menus ---------- */
+let openMenu = null;
+function menuHTML(items) {
+  return items.map((it, i) => {
+    if (it.sep) return '<div class="msep"></div>';
+    if (it.head) return `<div class="mhead">${esc(it.head)}</div>`;
+    return `<button class="mi ${it.danger ? 'danger' : ''}" data-i="${i}" role="menuitem"><span class="mck">${it.checked ? icon('check') : ''}</span>
+      <span class="ml">${esc(it.label)}${it.sub ? `<small>${esc(it.sub)}</small>` : ''}</span>${it.color ? `<span class="dot" style="--c:var(--${it.color})"></span>` : it.icon ? icon(it.icon) : ''}</button>`;
+  }).join('');
+}
+function buildMenu(items) {
+  const m = document.createElement('div');
+  m.className = 'menu glass glass-strong measure'; m.setAttribute('role', 'menu');
+  m.innerHTML = menuHTML(items);
+  document.body.appendChild(m);
+  return m;
+}
+function wireMenu(m, items, close) {
+  m.addEventListener('click', e => {
+    const b = e.target.closest('.mi'); if (!b) return;
+    const it = items[+b.dataset.i]; haptic(); close();
+    if (it && it.run) setTimeout(it.run, 120);
+  });
+}
+function showMenu(anchor, items) {
+  closeMenus();
+  const m = buildMenu(items), r = anchor.getBoundingClientRect(), mw = m.offsetWidth, mh = m.offsetHeight;
+  const vw = innerWidth, vh = innerHeight;
+  let x = r.left + r.width / 2 > vw / 2 ? r.right - mw : r.left;
+  let y = r.bottom + 8;
+  if (y + mh > vh - 12) y = Math.max(12, r.top - mh - 8);
+  x = Math.max(12, Math.min(vw - mw - 12, x));
+  Object.assign(m.style, { left: x + 'px', top: y + 'px' });
+  m.style.setProperty('--ox', (r.left + r.width / 2 - x) + 'px');
+  m.style.setProperty('--oy', (r.top + r.height / 2 - y) + 'px');
+  m.classList.remove('measure');
+  const close = () => { if (openMenu !== api) return; openMenu = null; m.classList.add('out'); setTimeout(() => m.remove(), 220); document.removeEventListener('pointerdown', outside, true); };
+  const outside = e => { if (!m.contains(e.target)) { close(); e.stopPropagation(); swallowClick = true; } };
+  const api = { close };
+  openMenu = api;
+  wireMenu(m, items, close);
+  setTimeout(() => document.addEventListener('pointerdown', outside, true), 0);
+  const first = $('.mi', m); first && first.focus({ preventScroll: true });
+}
+function showContext(el, items) {
+  closeMenus();
+  const r = el.getBoundingClientRect();
+  const ov = document.createElement('div'); ov.className = 'ctx-ov';
+  const pv = el.cloneNode(true);
+  pv.classList.add('ctx-prev'); pv.classList.remove('pressing');
+  pv.removeAttribute('data-action'); pv.removeAttribute('data-ctx');
+  Object.assign(pv.style, { left: r.left + 'px', top: r.top + 'px', width: r.width + 'px', height: r.height + 'px' });
+  document.body.append(ov, pv);
+  const m = buildMenu(items), mw = m.offsetWidth, mh = m.offsetHeight, vw = innerWidth, vh = innerHeight;
+  let shift = 0, y;
+  if (r.bottom + 12 + mh < vh - 16) y = r.bottom + 12;
+  else if (r.top - 12 - mh > 16) y = r.top - 12 - mh;
+  else { y = vh - 16 - mh; shift = (y - 12) - r.bottom; }
+  const x = Math.max(12, Math.min(vw - mw - 12, r.left));
+  Object.assign(m.style, { left: x + 'px', top: y + 'px' });
+  m.style.setProperty('--ox', (r.left + 40 - x) + 'px');
+  m.style.setProperty('--oy', (y > r.top ? -12 : mh + 12) + 'px');
+  m.classList.remove('measure');
+  requestAnimationFrame(() => { pv.style.transform = `translateY(${shift}px) scale(1.03)`; });
+  haptic();
+  const close = () => {
+    if (openMenu !== api) return; openMenu = null;
+    m.classList.add('out'); ov.classList.add('out'); pv.style.transform = '';
+    setTimeout(() => { m.remove(); ov.remove(); pv.remove(); }, 260);
+  };
+  const api = { close };
+  openMenu = api;
+  ov.addEventListener('click', close);
+  wireMenu(m, items, close);
+}
+function closeMenus() { if (openMenu) openMenu.close(); }
+
+function subjMenu(id) {
+  const s = BY[id], fav = S.favs.includes(id);
+  return [
+    { head: `${s.id} · ${s.teachers.join(', ')}` },
+    { label: 'Open', icon: 'open', run: () => openSubject(id) },
+    { label: fav ? 'Remove from Favourites' : 'Add to Favourites', icon: 'star', run: () => toggleFav(id) },
+    { sep: true },
+    { label: 'Start Focus Session', icon: 'timer', run: () => { if (!S.focus.running) setFocusSubj(id); selectTab(3); } },
+    { label: 'New Task', icon: 'plus', run: () => openAddTask(id) },
+    { label: 'Copy Teacher Name', icon: 'copy', run: () => copyText(s.teachers.join(', ')) }
+  ];
+}
+function taskMenu(id) {
+  const t = S.tasks.find(x => x.id === id); if (!t) return [];
+  return [
+    { label: t.done ? 'Mark as Not Done' : 'Mark as Done', icon: t.done ? 'undo' : 'check', run: () => toggleTask(id) },
+    { label: 'Open Subject', icon: 'open', run: () => openSubject(t.subj) },
+    { sep: true },
+    { label: 'Delete Task', icon: 'trash', danger: true, run: () => { S.tasks = S.tasks.filter(x => x.id !== id); save('tasks'); render(); toast('Task Deleted', 'trash'); } }
+  ];
+}
+function copyText(txt) {
+  const done = () => toast('Copied', 'copy');
+  try { navigator.clipboard.writeText(txt).then(done, () => toast(txt, 'person')); } catch (e) { toast(txt, 'person'); }
+}
+
+/* Long press → context menu */
+let lp = null, swallowClick = false;
+document.addEventListener('pointerdown', e => {
+  swallowClick = false;
+  const el = e.target.closest('[data-ctx]');
+  if (!el || e.button > 0 || el.closest('.ctx-prev')) return;
+  el.classList.add('pressing');
+  lp = { el, x: e.clientX, y: e.clientY, t: setTimeout(() => { el.classList.remove('pressing'); lp = null; swallowClick = true; openCtx(el); }, 480) };
+}, true);
+const cancelLP = () => { if (lp) { clearTimeout(lp.t); lp.el.classList.remove('pressing'); lp = null; } };
+document.addEventListener('pointermove', e => { if (lp && Math.hypot(e.clientX - lp.x, e.clientY - lp.y) > 8) cancelLP(); }, true);
+document.addEventListener('pointerup', cancelLP, true);
+document.addEventListener('pointercancel', cancelLP, true);
+document.addEventListener('scroll', cancelLP, true);
+document.addEventListener('contextmenu', e => {
+  const el = e.target.closest('[data-ctx]'); if (!el) return;
+  e.preventDefault(); cancelLP();
+  if (!openMenu) openCtx(el);
+});
+function openCtx(el) {
+  const items = el.dataset.ctx === 'subj' ? subjMenu(el.dataset.id) : taskMenu(el.dataset.id);
+  if (items.length) showContext(el, items);
+}
+
+/* ---------- Sheets ---------- */
+const scene = $('#scene');
+function openSheet({ html, onMount, push = true }) {
+  closeMenus();
+  const layer = document.createElement('div');
+  layer.className = 'sheet-layer';
+  layer.innerHTML = `<div class="sheet-scrim"></div><div class="sheet" role="dialog" aria-modal="true"><div class="grabber"></div>${html}</div>`;
+  document.body.appendChild(layer);
+  const sheet = $('.sheet', layer);
+  requestAnimationFrame(() => requestAnimationFrame(() => { layer.classList.add('open'); if (push) scene.classList.add('pushed'); }));
+  let closed = false;
+  const close = () => {
+    if (closed) return; closed = true;
+    sheet.style.transition = ''; sheet.style.transform = '';
+    layer.classList.remove('open');
+    if (push) scene.classList.remove('pushed');
+    document.removeEventListener('keydown', esc_);
+    setTimeout(() => layer.remove(), 560);
+  };
+  const esc_ = e => { if (e.key === 'Escape') close(); };
+  document.addEventListener('keydown', esc_);
+  $('.sheet-scrim', layer).addEventListener('click', close);
+  layer.addEventListener('click', e => { if (e.target.closest('[data-close]')) close(); });
+  let d = null;
+  sheet.addEventListener('pointerdown', e => {
+    if (!e.target.closest('.grabber, .sheet-head') || e.target.closest('button')) return;
+    d = { y0: e.clientY, t0: performance.now(), dy: 0 };
+    sheet.style.transition = 'none';
+    sheet.setPointerCapture(e.pointerId);
+  });
+  sheet.addEventListener('pointermove', e => {
+    if (!d) return;
+    const dy = e.clientY - d.y0; d.dy = dy;
+    sheet.style.transform = `translateY(${dy > 0 ? dy : dy / 6}px)`;
+  });
+  const up = () => {
+    if (!d) return;
+    const v = d.dy / Math.max(1, performance.now() - d.t0), dy = d.dy; d = null;
+    if (dy > 110 || v > .6) close(); else { sheet.style.transition = ''; sheet.style.transform = ''; }
+  };
+  sheet.addEventListener('pointerup', up);
+  sheet.addEventListener('pointercancel', up);
+  onMount && onMount(sheet, close);
+  placeSegs(sheet);
+  return close;
+}
+
+function openSubject(id) {
+  const s = BY[id]; if (!s) return;
+  const fav = S.favs.includes(id), total = minutesSince(0, id), week = minutesSince(sod() - 6 * DAY, id);
+  const tasks = openTasks().filter(t => t.subj === id);
+  openSheet({
+    html: `<div class="sheet-head"><button class="nbtn glass press" data-close aria-label="Close">${icon('x')}</button><div class="sheet-title"></div>
+      <button class="nbtn glass press ${fav ? 'fav-on' : ''}" id="sh-fav" aria-label="${fav ? 'Remove from favourites' : 'Add to favourites'}">${icon('star')}</button></div>
+      <div class="sheet-body">
+        <div class="hero">${sicon(s, 'xl')}<h2>${esc(s.full || s.name)}</h2><p>${esc(s.id)} · ${esc(CAT[s.cat].name)}</p></div>
+        <div class="stats"><div class="stat"><b>${fmtMin(total)}</b><span>Total focus</span></div><div class="stat"><b>${fmtMin(week)}</b><span>This week</span></div><div class="stat"><b>${tasks.length}</b><span>Open tasks</span></div></div>
+        <div class="btn-row"><button class="btn btn-prim glass press" id="sh-focus">${icon('timer')}Focus</button><button class="btn glass press" id="sh-task">${icon('plus')}Task</button></div>
+        <section class="sec"><h2 class="sec-h">${s.teachers.length > 1 ? 'Teachers' : 'Teacher'}</h2><div class="group">${s.teachers.map(t => `<div class="row"><span class="avatar">${esc(initials(t))}</span><span class="row-main"><span class="row-text"><span class="row-title">${esc(t)}</span><span class="row-sub">${esc(SUBJECTS.filter(x => x.teachers.includes(t)).map(x => x.id).join(' · '))}</span></span></span></div>`).join('')}</div></section>
+        <section class="sec"><h2 class="sec-h">Upcoming</h2><div class="group">${tasks.length ? tasks.map(taskRow).join('') : `<div class="row"><span class="row-main"><span class="row-text"><span class="row-sub">No upcoming tasks for ${esc(s.id)}.</span></span></span></div>`}</div></section>
+        <section class="sec"><h2 class="sec-h">Notes</h2><div class="group"><textarea class="notes" id="sh-notes" placeholder="Write notes for ${esc(s.name)}…" aria-label="Notes">${esc(S.notes[id] || '')}</textarea></div></section>
+      </div>`,
+    onMount(sh, close) {
+      const fb = $('#sh-fav', sh);
+      fb.addEventListener('click', () => { toggleFav(id); const on = S.favs.includes(id); fb.classList.toggle('fav-on', on); haptic(); });
+      $('#sh-focus', sh).addEventListener('click', () => { if (!S.focus.running) setFocusSubj(id); close(); setTimeout(() => selectTab(3), 200); });
+      $('#sh-task', sh).addEventListener('click', () => { close(); setTimeout(() => openAddTask(id), 320); });
+      let nt; $('#sh-notes', sh).addEventListener('input', e => { clearTimeout(nt); nt = setTimeout(() => { S.notes[id] = e.target.value; save('notes'); }, 300); });
+    }
+  });
+}
+
+function openAddTask(preset) {
+  const subj = preset || (S.tab === 'focus' ? S.focus.subj : 'MAT');
+  openSheet({
+    html: `<div class="sheet-head"><button class="nbtn glass press" data-close aria-label="Cancel">${icon('x')}</button><div class="sheet-title">New Task</div>
+      <button class="nbtn glass press tint" id="nt-add" aria-label="Add task" disabled>${icon('check')}</button></div>
+      <div class="sheet-body">
+        <div class="group"><input class="field" id="nt-title" placeholder="Title" maxlength="120" autocomplete="off" enterkeyhint="done" aria-label="Title"></div>
+        <div class="group">
+          <label class="frow"><span>Subject</span><select id="nt-subj">${CATS.map(c => `<optgroup label="${esc(c.name)}">${SUBJECTS.filter(s => s.cat === c.id).map(s => `<option value="${s.id}" ${s.id === subj ? 'selected' : ''}>${esc(s.id)} · ${esc(s.name)}</option>`).join('')}</optgroup>`).join('')}</select></label>
+          <label class="frow"><span>Due</span><input type="date" id="nt-due" value="${isoDay(sod() + DAY)}"></label>
+        </div>
+        ${seg('nt-type', [['Homework', 'Homework'], ['Test', 'Test'], ['Project', 'Project']], 'Homework')}
+      </div>`,
+    onMount(sh, close) {
+      const ti = $('#nt-title', sh), add = $('#nt-add', sh);
+      ti.addEventListener('input', () => { add.disabled = !ti.value.trim(); });
+      const submit = () => {
+        const title = ti.value.trim(); if (!title) return;
+        const due = $('#nt-due', sh).value || isoDay(sod() + DAY);
+        S.tasks.push({ id: uid(), title, subj: $('#nt-subj', sh).value, type: $('.seg .on', sh).dataset.v, due, done: false });
+        save('tasks'); render(); close(); toast('Task Added');
+      };
+      add.addEventListener('click', submit);
+      ti.addEventListener('keydown', e => { if (e.key === 'Enter') submit(); });
+      setTimeout(() => ti.focus({ preventScroll: true }), 420);
+    }
+  });
+}
+
+function confirmSheet({ title, msg, label, run }) {
+  openSheet({
+    push: false,
+    html: `<div class="sheet-body as"><div class="as-text"><b>${esc(title)}</b><p>${esc(msg)}</p></div>
+      <button class="btn btn-red glass press" id="as-go">${esc(label)}</button><button class="btn glass press" data-close>Cancel</button></div>`,
+    onMount(sh, close) { $('#as-go', sh).addEventListener('click', () => { run(); close(); }); }
+  });
+}
+
+/* ---------- Actions ---------- */
+function toggleFav(id) {
+  const on = S.favs.includes(id);
+  S.favs = on ? S.favs.filter(x => x !== id) : [...S.favs, id];
+  save('favs'); render('today'); renderStudy();
+  toast(on ? 'Removed from Favourites' : 'Added to Favourites', 'star');
+}
+function toggleTask(id, el) {
+  const t = S.tasks.find(x => x.id === id); if (!t) return;
+  t.done = !t.done; t.doneAt = t.done ? Date.now() : 0; save('tasks'); haptic();
+  const row = el && el.closest('.task');
+  if (row) {
+    row.classList.toggle('done', t.done);
+    row.classList.add('leaving');
+    setTimeout(render, 820);
+  } else render();
+}
+function setFocusSubj(id) { S.focus.subj = id; save('focus'); render('focus'); }
+
+/* Focus timer */
+function focusRemaining() { const f = S.focus; return f.running ? Math.max(0, f.endAt - Date.now()) : f.remaining; }
+let ticker = null;
+function tick() {
+  const f = S.focus; if (!f.running) return;
+  const rem = focusRemaining();
+  const te = $('#ring-time'), pr = $('#ring-prog');
+  if (te) te.textContent = fmtClock(rem);
+  if (pr) { const C = 2 * Math.PI * 130; pr.style.strokeDashoffset = C * (rem / (f.dur * 60000)); }
+  if (rem <= 0) focusComplete();
+}
+function startTicker() { clearInterval(ticker); ticker = setInterval(tick, 250); }
+function logSession(min) { S.sessions.push({ subj: S.focus.subj, min, at: Date.now() }); save('sessions'); }
+function resetFocus() { const f = S.focus; f.running = false; f.endAt = 0; f.remaining = f.dur * 60000; clearInterval(ticker); save('focus'); }
+function focusComplete() {
+  const f = S.focus; logSession(f.dur); resetFocus();
+  try { navigator.vibrate && navigator.vibrate([30, 60, 30]); } catch (e) {}
+  render(); toast(`${f.dur} min of ${BY[f.subj].name} logged`, 'check');
+}
+const ACTIONS = {
+  tab: el => { if (tabSuppress) return; if (minimized) { setMin(false); return; } selectTab(TABS.findIndex(t => t.id === el.dataset.tab)); },
+  go: el => selectTab(TABS.findIndex(t => t.id === el.dataset.go)),
+  'open-subj': el => openSubject(el.dataset.id),
+  'add-task': () => openAddTask(),
+  'toggle-task': el => toggleTask(el.dataset.id, el),
+  filter: el => { S.filter = el.dataset.v; renderStudy(); el = $(`#chips [data-v="${S.filter}"]`); el && el.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' }); },
+  'clear-search': () => { const q = $('#q'); q.value = ''; S.query = ''; $('#q-clear').hidden = true; renderStudy(); q.focus(); },
+  'study-view': () => { S.view = S.view === 'grid' ? 'list' : 'grid'; save('view'); renderStudy(); updateNav(); },
+  'study-menu': el => showMenu(el, [
+    { head: 'View as' },
+    { label: 'List', icon: 'list', checked: S.view === 'list', run: () => { S.view = 'list'; save('view'); renderStudy(); updateNav(); } },
+    { label: 'Grid', icon: 'grid', checked: S.view === 'grid', run: () => { S.view = 'grid'; save('view'); renderStudy(); updateNav(); } },
+    { sep: true }, { head: 'Group by' },
+    { label: 'Category', icon: 'folder', checked: S.sort === 'category', run: () => { S.sort = 'category'; save('sort'); renderStudy(); } },
+    { label: 'Name', icon: 'textsort', checked: S.sort === 'name', run: () => { S.sort = 'name'; save('sort'); renderStudy(); } },
+    { label: 'Teacher', icon: 'person', checked: S.sort === 'teacher', run: () => { S.sort = 'teacher'; save('sort'); renderStudy(); } }
+  ]),
+  seg: el => {
+    const sg = el.closest('.seg'); if (el.classList.contains('on')) return;
+    $$('button', sg).forEach(b => { const on = b === el; b.classList.toggle('on', on); b.setAttribute('aria-checked', on); });
+    placeSegs(sg); haptic();
+    const k = sg.dataset.seg, v = el.dataset.v;
+    setTimeout(() => {
+      if (k === 'taskSeg') { S.taskSeg = v; render('tasks'); }
+      else if (k === 'theme') { S.settings.theme = v; save('settings'); applySettings(); }
+      else if (k === 'dur') { if (S.focus.running) return; S.focus.dur = +v; S.focus.remaining = +v * 60000; save('focus'); render('focus'); }
+    }, 260);
+  },
+  accent: el => { S.settings.accent = el.dataset.v; save('settings'); applySettings(); render('settings'); haptic(); },
+  switch: el => {
+    const k = el.dataset.key; S.settings[k] = !S.settings[k]; save('settings');
+    el.setAttribute('aria-checked', S.settings[k]); applySettings(); haptic();
+    if (k === 'minimize' && !S.settings.minimize) setMin(false);
+  },
+  goal: el => { S.settings.goal = Math.max(15, Math.min(240, S.settings.goal + +el.dataset.d)); save('settings'); render('settings'); },
+  'reset-focus': () => confirmSheet({ title: 'Reset Focus History?', msg: 'All logged focus sessions will be removed from this device.', label: 'Reset History', run: () => { S.sessions = []; save('sessions'); render(); toast('Focus History Reset', 'undo'); } }),
+  'delete-tasks': () => confirmSheet({ title: 'Delete All Tasks?', msg: `This removes ${S.tasks.length} task${S.tasks.length === 1 ? '' : 's'}, including completed ones.`, label: 'Delete All Tasks', run: () => { S.tasks = []; save('tasks'); render(); toast('Tasks Deleted', 'trash'); } }),
+  'clear-done': () => { S.tasks = S.tasks.filter(t => !t.done); save('tasks'); render(); toast('Completed Tasks Cleared', 'trash'); },
+  'focus-start': () => { const f = S.focus; f.endAt = Date.now() + f.remaining; f.running = true; save('focus'); render('focus'); startTicker(); haptic(); },
+  'focus-pause': () => { const f = S.focus; f.remaining = focusRemaining(); f.running = false; clearInterval(ticker); save('focus'); render('focus'); haptic(); },
+  'focus-cancel': () => {
+    const f = S.focus, m = Math.floor((f.dur * 60000 - focusRemaining()) / 60000);
+    if (m >= 1) { logSession(m); toast(`${m} min of ${BY[f.subj].name} logged`); }
+    resetFocus(); render();
+  },
+  'focus-pick': el => {
+    const items = [];
+    CATS.forEach((c, i) => {
+      if (i) items.push({ sep: true });
+      items.push({ head: c.name });
+      SUBJECTS.filter(s => s.cat === c.id).forEach(s => items.push({ label: s.name, sub: s.id, color: s.color, checked: s.id === S.focus.subj, run: () => setFocusSubj(s.id) }));
+    });
+    showMenu(el, items);
+  }
+};
+document.addEventListener('click', e => {
+  if (swallowClick) { swallowClick = false; e.preventDefault(); e.stopPropagation(); return; }
+}, true);
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-action]');
+  if (!el || el.closest('.ctx-prev, .menu')) return;
+  const fn = ACTIONS[el.dataset.action];
+  if (fn) fn(el, e);
+});
+document.addEventListener('input', e => {
+  if (e.target.id !== 'q') return;
+  S.query = e.target.value; $('#q-clear').hidden = !S.query;
+  $('#study-results').innerHTML = renderStudyResults();
+});
+document.addEventListener('keydown', e => {
+  if (!openMenu) return;
+  const items = $$('.menu:not(.out) .mi');
+  if (e.key === 'Escape') { closeMenus(); return; }
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    const i = items.indexOf(document.activeElement), n = items.length;
+    items[(i + (e.key === 'ArrowDown' ? 1 : -1) + n) % n]?.focus();
+  }
+});
+addEventListener('resize', () => { layoutBar(); placeSegs(); closeMenus(); });
+document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
+
+/* ---------- Boot ---------- */
+applySettings();
+render();
+views[S.tab].classList.add('active');
+layoutBar();
+updateNav();
+if (S.focus.running) { if (focusRemaining() <= 0) focusComplete(); else startTicker(); }
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => placeSegs());
+})();
+</script>
+</body>
+</html>
