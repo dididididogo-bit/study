@@ -1,7 +1,7 @@
 ---
 title: 1.3 Diversidade celular e níveis de organização
 part: Domínio 1 · Terra, um planeta com vida
-pages: Manual pp. 30–45 · PPT Célula
+pages: Manual pp. 30–45 · Caderno pp. 9–11 · PPT Célula
 ---
 # Diversidade celular
 
@@ -17,6 +17,21 @@ pages: Manual pp. 30–45 · PPT Célula
 O desenvolvimento tecnológico do **microscópio** (maior poder de **ampliação** e melhor **resolução**) permitiu observar com mais detalhe os organelos e conhecer melhor a **constituição e estrutura da célula**.
 :::
 
+## História da descoberta da célula (Manual pp. 30–31)
+- A vida começou há cerca de **3800 Ma** com seres muito simples, como as bactérias, formadas por uma única célula (**unicelulares**). Os dinossauros só apareceram há cerca de 250 Ma.
+
+| Ano | Cientista | Contributo |
+|---|---|---|
+| **1590** | **Zacharias Jansen** (e o pai, Hans Jansen) | Constroem o **primeiro microscópio** |
+| **1663** | **Robert Hooke** (biólogo) | Analisa cortes de **cortiça**, observa as paredes celulares e chama-lhes **«células»** |
+| **1674** | **Antony Leeuwenhoek** | Aperfeiçoa os microscópios e observa os primeiros materiais biológicos: **protozoários, bactérias e espermatozoides** |
+| **1838** | **Mathias Schleiden** (botânico) | A célula é a unidade básica dos **vegetais** |
+| **1839** | **Theodor Schwann** (zoologista) | Todos os **animais** são formados por células |
+| **1885** | **Rudolf Virchow** (médico) | «***Omnis cellula ex cellula***» — qualquer célula tem origem noutra célula |
+| **1931** | **Ernst Ruska** (físico) | Inventa o **microscópio eletrónico** (amplia cerca de **500 mil vezes**; revela moléculas orgânicas e vírus) |
+
+- Hoje, os **microscópios eletrónicos** e os **microscópios de força atómica** permitem ver estruturas nunca antes observadas.
+
 ## Microscópio ótico composto
 **Partes:** ocular · tubo (canhão) · revólver · objetivas · braço (coluna) · platina com pinças · condensador e diafragma · fonte de luz · parafuso **macrométrico** · parafuso **micrométrico** · pé (base).
 
@@ -30,6 +45,33 @@ O desenvolvimento tecnológico do **microscópio** (maior poder de **ampliação
 6. Tornar a imagem **nítida** com o **micrométrico**.
 :::
 
+### Funções das partes (Manual p. 33)
+| Parte | Função |
+|---|---|
+| **Ocular** | Sistema de lentes que **amplia a imagem** |
+| **Objetivas** | Sistemas de lentes que projetam a imagem ampliada da amostra em direção à ocular |
+| **Revólver** | **Suporte das objetivas** |
+| **Platina com pinças** | Onde se coloca e prende a preparação |
+| **Condensador** | Lentes que **concentram os raios luminosos** da fonte de luz na preparação |
+| **Diafragma** | **Regula a intensidade luminosa** no campo visual |
+| **Parafuso macrométrico** | Movimentos **amplos e rápidos** da platina (aproximar/afastar das objetivas) |
+| **Parafuso micrométrico** | Movimentos **restritos e rigorosos** — focagem fina |
+| Tubo ou canhão · Braço ou coluna · Pé ou base · Fonte de luz | Estrutura e iluminação |
+
+O microscópio ótico composto amplia imagens de estruturas muito pequenas graças ao seu **poder de resolução**; tem **dois sistemas de lentes: ocular e objetivas**. *(Ampliação total = ampliação da ocular × ampliação da objetiva.)*
+
+:::warn
+**Cuidados com o microscópio:** transporta-o com **as duas mãos** (uma na base, outra na coluna) · coloca-o sobre a mesa, afastado do bordo · não molhes a platina · limpa as lentes com material próprio, em movimentos circulares · no fim, guarda-o com a **objetiva de menor ampliação** selecionada e protegido.
+:::
+
+:::steps
+**Como montar uma preparação (p. 33)**
+1. Coloca uma gota de água no centro da **lâmina**.
+2. Em cima da gota, coloca a amostra.
+3. Cobre com uma **lamela**: encosta-a à lâmina num ângulo de **45°** e, com uma agulha de dissecação, deixa-a cair lentamente.
+4. Retira o excesso de água com **papel de filtro**.
+:::
+
 ## Organismos
 - **Unicelulares:** uma só célula (ex.: bactérias).
 - **Pluricelulares (multicelulares):** duas ou mais células.
@@ -41,6 +83,11 @@ O desenvolvimento tecnológico do **microscópio** (maior poder de **ampliação
 | Organelos membranares | **Não** | **Sim** |
 | Material genético (ADN) | Disperso no citoplasma, no **nucleoide** | Dentro de um **núcleo** (membrana nuclear) |
 | Exemplos | **Bactérias** e arqueobactérias | **Protistas, fungos, plantas e animais** |
+
+- Existe uma grande diversidade de células, que diferem na **forma e tamanho** consoante o organismo e a função. Exemplos de **unicelulares**: *Bacillus subtilis*, *Nostoc*, *Vorticella*, *Euglena*. **Pluricelulares**: *Elodea* (planta), *Homo sapiens*, *Agaricus bisporus* (cogumelo).
+- Os seres vivos formados por células procarióticas chamam-se **procariontes** (bactérias e arqueobactérias); os formados por células eucarióticas chamam-se **eucariontes** (protistas, fungos, plantas e animais).
+- O **nucléolo** é uma região do núcleo com grande concentração de material genético. O núcleo é rodeado pela **membrana nuclear**.
+- **Ecocuriosidade:** o **óvulo** é a maior célula do corpo humano (cerca de **0,12 mm**) e pode ver-se a olho nu.
 
 **Estruturas da célula procariótica:** fímbrias (adesão), ribossomas (síntese de proteínas), parede celular (proteção), citoplasma, membrana celular, flagelo (mobilidade), nucleoide (material genético).
 
@@ -98,4 +145,23 @@ O desenvolvimento tecnológico do **microscópio** (maior poder de **ampliação
 
 :::tip
 Ordem: **Átomo → Molécula → Célula → Tecido → Órgão → Sistema de órgãos → Organismo → População → Comunidade → Ecossistema → Biosfera**.
+:::
+
+
+## Liga-te ao laboratório — procarióticas vs. eucarióticas (Manual pp. 38–39)
+- **Atividade 1 — epitélio lingual (bochecha/gengiva) e bactérias:** gota de **azul de metileno** na lâmina; raspa-se a gengiva com um palito; cobre-se com lamela; observa-se. Vêem-se **células do epitélio** (eucarióticas animais: membrana, citoplasma, **núcleo**) e **bactérias** (procarióticas, muito mais pequenas, sem núcleo). O azul de metileno é um **corante** que permite ver melhor as estruturas (o núcleo).
+- **Atividade 2 — filídios de musgo:** gota de água na lâmina, filídio de musgo com pinça, lamela. Vêem-se células **eucarióticas vegetais** com **parede celular** e muitos **cloroplastos** (verdes).
+
+## Biodiversidade e classificação (Manual pp. 40–41)
+- A **biologia** é a ciência que estuda a vida e permitiu classificar os seres vivos conhecidos. Hoje usam-se categorias **desde o reino até à espécie**, com base no **parentesco ao longo da evolução**.
+- **Ecocuriosidade:** **Aristóteles** (384–322 a.C.) foi o primeiro a agrupar os seres vivos em dois grupos: **animais** (que se moviam) e **plantas** (que não se moviam); considerava que as espécies não evoluíam.
+
+:::key
+**Recorda (Manual p. 42)**
+- A **célula** é a mais pequena unidade funcional e estrutural comum a todos os seres vivos.
+- As células classificam-se em **procarióticas** e **eucarióticas** conforme a presença ou ausência de **organitos**.
+- A observação de células só foi possível com os **microscópios**.
+- **Procarióticas:** muito simples, **sem núcleo**; têm **parede celular** e algumas têm **flagelo** → seres **procariontes**.
+- **Eucarióticas:** com núcleo, maiores e complexas; presentes em **protistas, fungos, plantas e animais** → seres **eucariontes**. **Animais:** sem cloroplastos nem parede, vários vacúolos pequenos. **Vegetais:** cloroplastos, parede celular e um vacúolo grande e central.
+- **Biodiversidade** = variedade e diversidade de organismos. **Níveis:** átomo, molécula, célula, tecido, órgão, sistema de órgãos, organismo, população, comunidade, ecossistema, biosfera.
 :::

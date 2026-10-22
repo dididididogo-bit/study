@@ -1,6 +1,6 @@
 ---
-title: Perguntas e fichas
-pages: PPTs · Ficha de preparação Teste 1 · Manual pp. 24–29
+title: PPTs e ficha de preparação
+pages: PPTs · Ficha de preparação Teste 1
 ---
 # Perguntas
 
@@ -124,67 +124,4 @@ pages: PPTs · Ficha de preparação Teste 1 · Manual pp. 24–29
 :::
 :::q Ficha · Grupo III · Q7 · Relaciona a importância do desenvolvimento tecnológico do microscópio para a melhoria do conhecimento sobre a célula.
 ?? Permitiu a **observação com maior detalhe dos organelos celulares** e um **maior e melhor conhecimento da constituição e estrutura celular**, através de microscópios com **maior poder de ampliação e melhor resolução** para observar material biológico.
-:::
-
-## Manual pp. 24–25 — Responde e Liga-te a Portugal
-:::q Manual · p. 24 · Responde 1 · Quais são as camadas que constituem os solos?
-?? Os **horizontes O, A, B e C**, assentes sobre a **rocha-mãe**.
-:::
-:::q Manual · p. 24 · Responde 2 · Horizonte com maior quantidade de matéria orgânica em decomposição.
-?? O **horizonte O** (a camada superficial, com restos de seres vivos e húmus).
-:::
-:::q Manual · p. 24 · Responde 3 · Explica a importância da rocha-mãe.
-?? É a rocha que, por **meteorização e erosão** ao longo de milhões de anos, **dá origem ao solo** — fornece a matéria mineral de que o solo é feito.
-:::
-:::q Manual · p. 25 · Liga-te a Portugal 1 · Subsistemas referidos nas notícias A (peixes mortos no Tejo por microalgas) e B (incêndios na Madeira → deslizamentos), respetivamente:
-?? **(B) biosfera e hidrosfera; hidrosfera e geosfera.** (A: as microalgas/peixes — biosfera — na água — hidrosfera. B: a chuva — hidrosfera — provoca deslizamentos de terra — geosfera.) *(A notícia B também envolve a biosfera — a vegetação queimada — mas esta é a opção que melhor corresponde.)*
-:::
-:::q Manual · p. 25 · Liga-te a Portugal 2 · Causa da morte dos peixes na notícia A.
-?? A proliferação de **fitoplâncton/microalgas (blooms)**, favorecida por temperaturas elevadas e falta de chuva, que **reduziu a quantidade de dioxigénio** na água.
-:::
-:::q Manual · p. 25 · Liga-te a Portugal 3 · Como podem os incêndios provocar deslizamentos de terra?
-?? Os incêndios **destroem a vegetação**, cujas **raízes seguravam o solo**. Sem ela, em chuvas intensas, o solo fica desprotegido e é **arrastado** — deslizamentos e aluviões.
-:::
-:::q Manual · p. 25 · Liga-te a Portugal 4 · Subsistemas em interação: A. Os vulcões libertam gases B. As raízes das árvores alteram as rochas C. Os seres vivos utilizam a água
-?? A. **geosfera – atmosfera**; B. **biosfera – geosfera**; C. **biosfera – hidrosfera**.
-:::
-
-## Manual p. 27 — Organiza (mapa de conceitos)
-:::q Manual · p. 27 · Organiza · Completa o mapa: Terra → constituída por (1) → (2), (3), Geosfera, (4); Geosfera contém o (5), formado a partir de (6) e constituído por (7).
-?? (1) **Subsistemas**; (2), (3), (4) **Atmosfera, Biosfera, Hidrosfera** (qualquer ordem); (5) **Solo**; (6) **Rocha-mãe**; (7) **Horizontes**.
-:::
-
-## Manual pp. 28–29 — Consolida
-:::q Manual · p. 28 · Consolida 1.1 · Legenda a Fig. 1.014 (1 céu/nuvens, 2 rochas, 3 floresta, 4 água).
-?? **1 – Atmosfera; 2 – Geosfera; 3 – Biosfera; 4 – Hidrosfera.**
-:::
-:::q Manual · p. 28 · Consolida 1.2 · O que representam as setas?
-?? As **interações** (trocas de **matéria e energia**) entre os subsistemas.
-:::
-:::q Manual · p. 28 · Consolida 1.3 · Comenta: «A Terra é um sistema aberto.»
-?? A afirmação é **falsa**. A Terra é um **sistema fechado**: só troca **energia** com o exterior, não há trocas de matéria significativas. Os seus **subsistemas** é que são sistemas abertos.
-:::
-:::q Manual · p. 28 · Consolida 1.4 · A hidrosfera corresponde (opção mais correta)
-?? **C. à totalidade da água do planeta.**
-:::
-:::q Manual · p. 28 · Consolida 1.5 · Descreve uma possível interação: A. 1 e 2 B. 3 e 4 C. 2 e 4
-?? A. **Atmosfera–geosfera:** os vulcões libertam gases para a atmosfera. B. **Biosfera–hidrosfera:** os seres vivos usam a água para viver. C. **Geosfera–hidrosfera:** a água erode e transporta as rochas.
-:::
-:::q Manual · p. 28 · Consolida 2 · Subsistemas em interação: A. raízes desgastam rochas B. animais precisam de água C. agricultura liberta poluentes no solo D. vapor de água condensa e precipita E. plantas usam sais minerais do solo F. vulcões projetam lava para o mar
-?? A. **biosfera–geosfera**; B. **biosfera–hidrosfera**; C. **biosfera–geosfera**; D. **atmosfera–hidrosfera**; E. **biosfera–geosfera**; F. **geosfera–hidrosfera**.
-:::
-:::q Manual · p. 29 · Consolida 3 · Liga: Hidrosfera, Geosfera, Biosfera, Atmosfera ↔ 1 seres vivos 2 camada gasosa 3 parte rochosa 4 toda a água
-?? **Hidrosfera–4; Geosfera–3; Biosfera–1; Atmosfera–2.**
-:::
-:::q Manual · p. 29 · Consolida 4.1 · Legenda a Fig. 1.015 (perfil do solo, 1 a 5 de cima para baixo).
-?? **1 – Horizonte O; 2 – Horizonte A; 3 – Horizonte B; 4 – Horizonte C; 5 – Rocha-mãe.**
-:::
-:::q Manual · p. 29 · Consolida 4.2 · A camada rica em matéria orgânica é o
-?? **D. horizonte O.**
-:::
-:::q Manual · p. 29 · Consolida 4.3 · Explica resumidamente como se forma o solo.
-?? Forma-se pela **meteorização e erosão da rocha-mãe** por agentes geológicos (água, vento, temperatura) e biológicos (raízes, seres vivos), ao longo de **milhões de anos**. Juntam-se restos de seres vivos (matéria orgânica) e diferenciam-se os **horizontes** até se formar um **solo maduro**.
-:::
-:::q Manual · p. 29 · Consolida 4.4 · Refere uma função do solo.
-?? Serve de **suporte** às plantas (ou: fornece **água e sais minerais**; é **habitat** de muitos seres vivos; base de ~90 % da **produção de alimentos**).
 :::

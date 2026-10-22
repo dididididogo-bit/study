@@ -26,11 +26,9 @@ SUBJECTS = {
     'CN': {
         'title': 'Ciências Naturais', 'subtitle': 'Guia de estudo · 8.º ano · Teste 1',
         'missing': [
-            'O Manual (258 MB; 34,6 MB comprimido) e o Caderno de atividades (54 MB; 19,5 MB comprimido) são digitalizações sem texto e '
-            'demasiado grandes para o Google Drive: não deu para os ler. O guia foi feito com a matriz do teste, as fichas de preparação '
-            '(com a correção do professor), os três PPTs e o OneNote (Resumo e Manual pp. 22–29).',
-            'Faltam por isso as Fichas 1, 2, 3 e a Ficha de Avaliação 1 do Caderno, e as páginas do Manual fora das pp. 22–29. '
-            'Para as juntar, divide os PDFs em ficheiros com menos de 5 MB.',
+            'Domínio 1 (Teste 1) está completo: Manual pp. 8–45, Caderno pp. 2–17 com as soluções do livro, PPTs, fichas de preparação e OneNote.',
+            'O Domínio 2 (Sustentabilidade na Terra) do Manual e do Caderno está a ser adicionado.',
+            'Respostas marcadas "resolução própria" não vêm do livro: o Manual não tem soluções.',
             'As páginas "Trabalho prático", "Atividade prática" e "Vídeo" do OneNote não estavam nas capturas de ecrã.',
         ],
     },
