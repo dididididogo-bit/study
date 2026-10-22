@@ -1,0 +1,310 @@
+{
+ "drive_root": {
+  "name": "Classes",
+  "id": "1g491WUyjxR8-GwKELCl_KzSvO-3kGJ8p"
+ },
+ "note": "Inventory of the Google Drive 'Classes' folder and what has been turned into guides. status: done | too_large | duplicate | empty | todo",
+ "subject_folders": {
+  "ICT": "1LTAUx6gdV4GDcI6Qp_lwNyO6K-Z9iR-v",
+  "Ciências-Naturais": "1e7kqPUAOts9DYh2rqFWV26BfAuuYf6MR",
+  "Educação-Fisica": "1wIvMdeEwm0Rco3DVwSgHG_UA6fGpSFTl",
+  "English": "1ObmWpMNJHfCXyp0oEsbPPJ8veiyXuRqg",
+  "História": "1V2SFf2IVjy5yynpnW3BjXmiiWyTh-axE",
+  "Educação-Musical": "1y0yHvbSzQCq9YQvgyg5E864m9UHuCGKh",
+  "Educação-Visual": "1EgptyZuRASFeyNEvV01Sx_YQOtAzIYtC",
+  "Fisico-Quimica": "1_xsmVLaoDG-cS2vvuwigR982b14iV0gE",
+  "Science": "1Tsr-oCurEgFS4ozHd4y2l0QaDzEdDv7Y",
+  "Português": "1_m6-uYvvxgtE5Na4ISPkQIKGhibaFfpM",
+  "Maths": "1mdjHhAvEqHUS_p8QPYL7jt1bzoNpQFyx",
+  "Matemática": "1goDYoFe62BDWUBOkrr6xRgO6MQMaz8SR",
+  "Cidadania": "1GkGoDPk9mDyqZifSwLuZkDAKkOpy57EB",
+  "Geografia": "1zpXmvIY2PbnWEzeJogg2BbtiC369wALO",
+  "Espanhol": "1_KK8Ph-A2s0irBoNZF9l4xIpzxRxT2Iz"
+ },
+ "screenshots": {
+  "CN": [
+   "IMG_0961.PNG",
+   "IMG_0962.PNG",
+   "IMG_0963.PNG",
+   "IMG_0964.PNG",
+   "IMG_0965.PNG",
+   "IMG_0966.PNG",
+   "IMG_0967.PNG",
+   "IMG_0968.PNG",
+   "IMG_0969.PNG",
+   "IMG_0970.PNG",
+   "IMG_0971.PNG"
+  ],
+  "ENGLISH": [
+   "IMG_0972.PNG",
+   "IMG_0973.PNG",
+   "IMG_0974.PNG",
+   "IMG_0975.PNG",
+   "IMG_0976.PNG",
+   "IMG_0977.PNG",
+   "IMG_0978.PNG",
+   "IMG_0979.PNG",
+   "IMG_0980.PNG",
+   "IMG_0981.PNG",
+   "IMG_0982.PNG"
+  ],
+  "EV": [
+   "IMG_0983.PNG",
+   "IMG_0984.PNG",
+   "IMG_0985.PNG",
+   "IMG_0986.PNG",
+   "IMG_0987.PNG",
+   "IMG_0988.PNG",
+   "IMG_0989.PNG",
+   "IMG_0990.PNG",
+   "IMG_0991.PNG",
+   "IMG_0992.PNG",
+   "IMG_0993.PNG",
+   "IMG_0994.PNG",
+   "IMG_0995.PNG"
+  ],
+  "FQ": [
+   "IMG_0996.PNG",
+   "IMG_0997.PNG",
+   "IMG_0998.PNG",
+   "IMG_0999.PNG",
+   "IMG_1001.PNG"
+  ],
+  "MATHS": [
+   "IMG_1002.PNG"
+  ],
+  "POR": [
+   "IMG_1003.PNG",
+   "IMG_1004.PNG"
+  ],
+  "SCIENCE": [
+   "IMG_1005.PNG",
+   "IMG_1006.PNG",
+   "IMG_1007.PNG",
+   "IMG_1008.PNG",
+   "IMG_1009.PNG",
+   "IMG_1010.PNG",
+   "IMG_1011.PNG",
+   "IMG_1012.PNG",
+   "IMG_1013.PNG",
+   "IMG_1014.PNG",
+   "IMG_1015.PNG",
+   "IMG_1016.PNG",
+   "IMG_1017.PNG",
+   "IMG_1018.PNG",
+   "IMG_1019.PNG",
+   "IMG_1020.PNG",
+   "IMG_1021.PNG",
+   "IMG_1022.PNG",
+   "IMG_1023.PNG",
+   "IMG_1024.PNG",
+   "IMG_1025.PNG",
+   "IMG_1026.PNG",
+   "IMG_1027.PNG",
+   "IMG_1028.PNG",
+   "IMG_1029.PNG",
+   "IMG_1030.PNG",
+   "IMG_1031.PNG",
+   "IMG_1032.PNG",
+   "IMG_1033.PNG",
+   "IMG_1034.PNG",
+   "IMG_1035.PNG",
+   "IMG_1036.PNG",
+   "IMG_1037.PNG",
+   "IMG_1038.PNG",
+   "IMG_1039.PNG",
+   "IMG_1040.PNG",
+   "IMG_1041.PNG",
+   "IMG_1042.PNG",
+   "IMG_1043.PNG",
+   "IMG_1044.PNG",
+   "IMG_1045.PNG",
+   "IMG_1046.PNG"
+  ]
+ },
+ "files": [
+  {
+   "title": "MATRIZ_8CN 1ºTESTE 2026.pdf",
+   "subject": "CN",
+   "status": "done"
+  },
+  {
+   "title": "MATRIZ_8CN 1ºTESTE 2026 2.pdf",
+   "subject": "CN",
+   "status": "duplicate"
+  },
+  {
+   "title": "Ficha de preparação Teste 1 CN8.pdf",
+   "subject": "CN",
+   "status": "done"
+  },
+  {
+   "title": "Ficha de preparação Teste 1 CN8 2.pdf",
+   "subject": "CN",
+   "status": "duplicate"
+  },
+  {
+   "title": "CC Ficha de preparação Teste 1 CN_2627.pdf",
+   "subject": "CN",
+   "status": "done"
+  },
+  {
+   "title": "CC Ficha de preparação Teste 1 CN_2627 2.pdf",
+   "subject": "CN",
+   "status": "duplicate"
+  },
+  {
+   "title": "Subsistemas terrestres.pptx.pdf",
+   "subject": "CN",
+   "status": "done"
+  },
+  {
+   "title": "Subsistemas terrestres.pptx 2.pdf",
+   "subject": "CN",
+   "status": "duplicate"
+  },
+  {
+   "title": "Diversidade celular.pptx.pdf",
+   "subject": "CN",
+   "status": "done"
+  },
+  {
+   "title": "Diversidade celular.pptx 2.pdf",
+   "subject": "CN",
+   "status": "duplicate"
+  },
+  {
+   "title": "re_82204_lgamb8_ppt_1.pdf",
+   "subject": "CN",
+   "status": "done",
+   "what": "Planificação anual CN"
+  },
+  {
+   "title": "re_82204_lgamb8_ppt_1 2.pdf",
+   "subject": "CN",
+   "status": "done",
+   "what": "PPT 1.1 Vida na Terra"
+  },
+  {
+   "title": "re_82204_lgamb8_ppt_1 3.pdf",
+   "subject": "CN",
+   "status": "duplicate"
+  },
+  {
+   "title": "Natureza Corpuscular da Matéria.pdf",
+   "subject": "FQ",
+   "status": "done"
+  },
+  {
+   "title": "Guião Trabalho Velocidade Reações_Video.pdf",
+   "subject": "FQ",
+   "status": "done"
+  },
+  {
+   "title": "Learners-Book-Stage-9.pdf",
+   "subject": "?",
+   "status": "too_large",
+   "size_mb": 53.5
+  },
+  {
+   "title": "Ciências-Naturais/Books/Manual.pdf",
+   "subject": "CN",
+   "status": "too_large",
+   "size_mb": 258
+  },
+  {
+   "title": "Ciências-Naturais/Books/Manual Compressed.pdf",
+   "subject": "CN",
+   "status": "too_large",
+   "size_mb": 34.6
+  },
+  {
+   "title": "Ciências-Naturais/Books/Caderno De Atividades.pdf",
+   "subject": "CN",
+   "status": "too_large",
+   "size_mb": 54.1
+  },
+  {
+   "title": "Ciências-Naturais/Books/Caderno De Atividades_Compressado.pdf",
+   "subject": "CN",
+   "status": "too_large",
+   "size_mb": 19.5
+  },
+  {
+   "title": "Espanhol/Books/Manual.pdf",
+   "subject": "ESP",
+   "status": "too_large",
+   "size_mb": 191.6,
+   "why": "scan with no text layer (read_file_content empty / page placeholders only) and too large to download"
+  },
+  {
+   "title": "Espanhol/Books/Manual Compressado.pdf",
+   "subject": "ESP",
+   "status": "too_large",
+   "size_mb": 25.5,
+   "why": "scan with no text layer (read_file_content empty / page placeholders only) and too large to download"
+  },
+  {
+   "title": "Espanhol/Books/Caderno De Atividades.pdf",
+   "subject": "ESP",
+   "status": "duplicate",
+   "size_mb": 28.9,
+   "note": "same as the compressed copy"
+  },
+  {
+   "title": "Espanhol/Books/Caderno De Atividades Compressado.pdf",
+   "subject": "ESP",
+   "status": "done",
+   "size_mb": 8.8,
+   "why": "connection drops above ~5 MB",
+   "id": "1xXdQoHFjjCkV962mZq3MTgF7T8v0vBUu",
+   "how": "read_file_content returns Drive OCR text (pp. 4-63 with Soluciones)",
+   "guide": "guides/ESP"
+  },
+  {
+   "title": "Geografia/Books/Manual.pdf",
+   "subject": "GEO",
+   "status": "too_large",
+   "size_mb": 279.6
+  },
+  {
+   "title": "Geografia/Books/Caderno De Atividades.pdf",
+   "subject": "GEO",
+   "status": "too_large",
+   "size_mb": 35.2
+  },
+  {
+   "title": "Geografia/Books/Caderno De Atividades Compressado.pdf",
+   "subject": "GEO",
+   "status": "too_large",
+   "size_mb": 13.5
+  },
+  {
+   "title": "Geografia/Books/GEOPro.pdf",
+   "subject": "GEO",
+   "status": "too_large",
+   "size_mb": 6.6,
+   "why": "connection drops above ~5 MB"
+  },
+  {
+   "title": "Geografia/Books/GEOPro Compressado.pdf",
+   "subject": "GEO",
+   "status": "too_large",
+   "size_mb": 6.6
+  }
+ ],
+ "empty_folders": [
+  "ICT",
+  "Educação-Fisica",
+  "Educação-Musical",
+  "Cidadania",
+  "English/Books",
+  "História/Books",
+  "Fisico-Quimica/Books",
+  "Science/Books",
+  "Português/Books",
+  "Maths/Books",
+  "Matemática/Books",
+  "Educação-Visual/Projeto"
+ ]
+}
