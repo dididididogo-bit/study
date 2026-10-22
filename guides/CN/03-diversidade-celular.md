@@ -165,3 +165,9 @@ Ordem: **Átomo → Molécula → Célula → Tecido → Órgão → Sistema de 
 - **Eucarióticas:** com núcleo, maiores e complexas; presentes em **protistas, fungos, plantas e animais** → seres **eucariontes**. **Animais:** sem cloroplastos nem parede, vários vacúolos pequenos. **Vegetais:** cloroplastos, parede celular e um vacúolo grande e central.
 - **Biodiversidade** = variedade e diversidade de organismos. **Níveis:** átomo, molécula, célula, tecido, órgão, sistema de órgãos, organismo, população, comunidade, ecossistema, biosfera.
 :::
+
+## Poderás ser… / Luzes, Ciência… Ação! / Liga-te + (Manual pp. 46–49)
+- **Astrobiólogo:** especialista em biologia e astronomia que estuda a possibilidade de vida noutros planetas e a origem da vida na Terra (estuda bactérias que sobrevivem em condições adversas e fósseis de vida primitiva). Trabalha em universidades, na **ESA** e na **NASA**. Em Portugal, o programa **POLAR2E** (Universidade de Lisboa) junta criosfera, clima, ecologia de ambientes extremos e astrobiologia.
+- **Microbiólogo:** estuda os **microrganismos**; desenvolve medicamentos e vacinas e usa microrganismos na produção e conservação de alimentos e no tratamento de águas.
+- **Filme *Vida Inteligente* (*Life*, 2017):** astronautas da Estação Espacial Internacional recolhem de Marte um **ser unicelular** («Calvin») que se desenvolve e se torna multicelular. Mensagem: o receio de que vida extraterrestre contamine a Terra. Em 2019, o vírus **SARS-CoV-2** (COVID-19) causou uma **pandemia**: «A humanidade não é indestrutível!».
+- **Liga-te + «Vida na Terra? Como foi possível?!»:** atividade interdisciplinar sobre a origem da vida (CN: hipóteses da origem da vida e tipos de células; Matemática: distâncias dos planetas; EV: maquete do Sistema Solar; FQ: moléculas da vida; TIC: banda desenhada em Canva; Português: entrevista a uma astrobióloga, Zita Martins).

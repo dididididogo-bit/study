@@ -27,7 +27,7 @@ SUBJECTS = {
         'title': 'Ciências Naturais', 'subtitle': 'Guia de estudo · 8.º ano · Teste 1',
         'missing': [
             'Domínio 1 (Teste 1) está completo: Manual pp. 8–45, Caderno pp. 2–17 com as soluções do livro, PPTs, fichas de preparação e OneNote.',
-            'O Domínio 2 (Sustentabilidade na Terra) do Manual e do Caderno está a ser adicionado.',
+            'Domínio 2: 2.1.1 Ecossistemas está completo (Manual pp. 52–85 e Caderno Fichas 4–6). O resto do Domínio 2 está a ser adicionado.',
             'Respostas marcadas "resolução própria" não vêm do livro: o Manual não tem soluções.',
             'As páginas "Trabalho prático", "Atividade prática" e "Vídeo" do OneNote não estavam nas capturas de ecrã.',
         ],
