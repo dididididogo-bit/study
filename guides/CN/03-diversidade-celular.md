@@ -1,5 +1,6 @@
 ---
 title: 1.3 Diversidade celular e níveis de organização
+part: Domínio 1 · Terra, um planeta com vida
 pages: Manual pp. 30–45 · PPT Célula
 ---
 # Diversidade celular

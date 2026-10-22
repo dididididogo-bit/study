@@ -126,7 +126,8 @@
   {
    "title": "MATRIZ_8CN 1ºTESTE 2026.pdf",
    "subject": "CN",
-   "status": "done"
+   "status": "done",
+   "guide": "guides/CN"
   },
   {
    "title": "MATRIZ_8CN 1ºTESTE 2026 2.pdf",
@@ -136,7 +137,8 @@
   {
    "title": "Ficha de preparação Teste 1 CN8.pdf",
    "subject": "CN",
-   "status": "done"
+   "status": "done",
+   "guide": "guides/CN"
   },
   {
    "title": "Ficha de preparação Teste 1 CN8 2.pdf",
@@ -146,7 +148,8 @@
   {
    "title": "CC Ficha de preparação Teste 1 CN_2627.pdf",
    "subject": "CN",
-   "status": "done"
+   "status": "done",
+   "guide": "guides/CN"
   },
   {
    "title": "CC Ficha de preparação Teste 1 CN_2627 2.pdf",
@@ -156,7 +159,8 @@
   {
    "title": "Subsistemas terrestres.pptx.pdf",
    "subject": "CN",
-   "status": "done"
+   "status": "done",
+   "guide": "guides/CN"
   },
   {
    "title": "Subsistemas terrestres.pptx 2.pdf",
@@ -166,7 +170,8 @@
   {
    "title": "Diversidade celular.pptx.pdf",
    "subject": "CN",
-   "status": "done"
+   "status": "done",
+   "guide": "guides/CN"
   },
   {
    "title": "Diversidade celular.pptx 2.pdf",
@@ -177,13 +182,15 @@
    "title": "re_82204_lgamb8_ppt_1.pdf",
    "subject": "CN",
    "status": "done",
-   "what": "Planificação anual CN"
+   "what": "Planificação anual CN",
+   "guide": "guides/CN"
   },
   {
    "title": "re_82204_lgamb8_ppt_1 2.pdf",
    "subject": "CN",
    "status": "done",
-   "what": "PPT 1.1 Vida na Terra"
+   "what": "PPT 1.1 Vida na Terra",
+   "guide": "guides/CN"
   },
   {
    "title": "re_82204_lgamb8_ppt_1 3.pdf",
@@ -210,25 +217,33 @@
    "title": "Ciências-Naturais/Books/Manual.pdf",
    "subject": "CN",
    "status": "too_large",
-   "size_mb": 258
+   "size_mb": 258,
+   "id": "1J5FG3HAQMq_oqVC2Wu4rnRJDK_VTvBsS",
+   "why": "scan with no text layer (read_file_content gives page placeholders only) and too large to download"
   },
   {
    "title": "Ciências-Naturais/Books/Manual Compressed.pdf",
    "subject": "CN",
    "status": "too_large",
-   "size_mb": 34.6
+   "size_mb": 34.6,
+   "id": "10BfxBoO0Sj6eP2zXkC0ZwTocUV_AWcWJ",
+   "why": "scan with no text layer (read_file_content gives page placeholders only) and too large to download"
   },
   {
    "title": "Ciências-Naturais/Books/Caderno De Atividades.pdf",
    "subject": "CN",
    "status": "too_large",
-   "size_mb": 54.1
+   "size_mb": 54.1,
+   "id": "1UUTdLBO4CZ2KkoLuJcsHoO_sVq8C88jF",
+   "why": "scan with no text layer (read_file_content gives page placeholders only) and too large to download"
   },
   {
    "title": "Ciências-Naturais/Books/Caderno De Atividades_Compressado.pdf",
    "subject": "CN",
    "status": "too_large",
-   "size_mb": 19.5
+   "size_mb": 19.5,
+   "id": "1twMDRiBJj4q4g1qg06J5lFkwy_c2o6sA",
+   "why": "scan with no text layer (read_file_content gives page placeholders only) and too large to download"
   },
   {
    "title": "Espanhol/Books/Manual.pdf",

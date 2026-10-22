@@ -1,5 +1,6 @@
 ---
 title: Teste 1 — o que sai (matriz)
+part: Teste 1
 pages: Manual pp. 8–45
 ---
 # Teste 1 — matriz (outubro 2026)

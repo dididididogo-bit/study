@@ -1,5 +1,6 @@
 ---
 title: 1.2 Subsistemas da Terra e o solo
+part: Domínio 1 · Terra, um planeta com vida
 pages: Manual pp. 22–29 · PPT Subsistemas
 ---
 # Subsistemas da Terra
@@ -47,4 +48,17 @@ pages: Manual pp. 22–29 · PPT Subsistemas
 
 :::key
 **Papel da água na geosfera:** a água é um **agente erosivo e de transporte** que atua sobre as rochas, provocando a sua **alteração (meteorização)** e a **modelação do relevo** da superfície terrestre.
+:::
+
+## Recorda (Manual p. 26)
+- A Terra é um **sistema fechado** constituído por quatro **subsistemas** interligados: **atmosfera, hidrosfera, geosfera e biosfera**.
+- **Atmosfera:** camada gasosa que envolve a Terra. **Biosfera:** todos os seres vivos. **Geosfera:** parte rochosa da Terra e materiais do seu interior. **Hidrosfera:** toda a água do planeta.
+- Os **solos** formam-se a partir da **meteorização e alteração das rochas-mãe**, servem de **suporte à vida** e são fundamentais à **biodiversidade**.
+- Os solos são constituídos pelos **horizontes O, A, B e C** e pela **rocha-mãe**.
+
+:::tip
+**Consigo (autoavaliação, p. 27):**
+- Distinguir o sistema Terra dos seus subsistemas e as potencialidades de cada um na geração da vida (p. 22).
+- Analisar criticamente o papel das rochas e do solo na existência de vida no meio terrestre e dos subsistemas na manutenção da vida (p. 24).
+- Praticar mais: **Caderno de atividades, Ficha 2**.
 :::

@@ -23,6 +23,17 @@ SUBJECTS = {
             'Livro 2 (Som e Luz): faltam as pp. 94–95, e os PDFs terminam na p. 105 (o capítulo 4 pode continuar).',
         ],
     },
+    'CN': {
+        'title': 'Ciências Naturais', 'subtitle': 'Guia de estudo · 8.º ano · Teste 1',
+        'missing': [
+            'O Manual (258 MB; 34,6 MB comprimido) e o Caderno de atividades (54 MB; 19,5 MB comprimido) são digitalizações sem texto e '
+            'demasiado grandes para o Google Drive: não deu para os ler. O guia foi feito com a matriz do teste, as fichas de preparação '
+            '(com a correção do professor), os três PPTs e o OneNote (Resumo e Manual pp. 22–29).',
+            'Faltam por isso as Fichas 1, 2, 3 e a Ficha de Avaliação 1 do Caderno, e as páginas do Manual fora das pp. 22–29. '
+            'Para as juntar, divide os PDFs em ficheiros com menos de 5 MB.',
+            'As páginas "Trabalho prático", "Atividade prática" e "Vídeo" do OneNote não estavam nas capturas de ecrã.',
+        ],
+    },
     'ESP': {
         'title': 'Espanhol', 'subtitle': '¡A bordo! 8 · Guia de estudo · 8.º ano',
                 'missing': [
